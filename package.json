@@ -7,7 +7,8 @@
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "typeface-source-sans-pro": "^0.0.54"
   },
   "keywords": [
     "gatsby"
@@ -28,6 +29,7 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
+    "gatsby-plugin-typography": "^1.7.18",
     "prettier": "^1.12.0"
   }
 }
