@@ -3,4 +3,13 @@
     "eslint.enable": true,
     "editor.formatOnSave": true,
     "eslint.autoFixOnSave": true,
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx",
+        "xml": {
+            "attr_quotes": "single"
+        }
+    },
+    "emmet.includeLanguages": {
+        "javascript": "html"
+    },
 }
