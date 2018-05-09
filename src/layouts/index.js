@@ -1,44 +1,66 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import styled, { injectGlobal } from 'styled-components'
 
-import Header from '../components/header'
-import './index.css'
+import 'typeface-source-sans-pro/index.css'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
+injectGlobal`
+  * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+  html {
+    background: #fbfef9;
+    color: #011627
+  }
+  ::selection {
+    color: #fbfef9;
+    background-color: rgba(1, 22, 39, 0.996);
+  }
+  ::-moz-selection {
+    color: #fbfef9;
+    background: #011627;
+  }
+  img::selection {
+    background-color: rgba(1, 22, 39, 0.5);
+  }
+`
+
+const Container = styled.div`
+  height: 100%;
+  width: 650px;
+  margin: 0 auto;
+  padding-top: 20px;
+  @media only screen and (max-width: 800px) {
+    width: 90%;
+  }
+`
 
 const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
-    </div>
-  </div>
+  <Container>
+    <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.site.siteMetadata.description} />
+    {children()}
+    <Footer />
+  </Container>
 )
-
-Layout.propTypes = {
-  children: PropTypes.func,
-}
 
 export default Layout
 
+Layout.propTypes = {
+  children: PropTypes.func,
+  data: PropTypes.object,
+}
+
 export const query = graphql`
-  query SiteTitleQuery {
+  query siteMetadataQuery {
     site {
       siteMetadata {
         title
+        description
       }
     }
   }
