@@ -1,33 +1,27 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
+const domain = 'https://radziejewski.pl'
+
+const HeaderLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+  &.is-active {
+    text-decoration: underline;
+  }
+`
+
+const Description = styled.section`
+  padding-bottom: 20px;
+`
+
+const Header = ({ siteTitle, siteDescription }) => (
+  <header>
+    <h1>
+      <HeaderLink href={domain}>{siteTitle}</HeaderLink>
+    </h1>
+    <Description>{siteDescription}</Description>
+  </header>
 )
 
 export default Header

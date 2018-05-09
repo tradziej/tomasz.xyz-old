@@ -1,13 +1,29 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Head from '../components/Head'
 
-const IndexPage = () => (
+import Main from '../components/Main'
+
+const IndexPage = ({ data, location }) => (
   <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Head
+      title={data.site.siteMetadata.title}
+      description="Tomasz Radziejewski. Full Stack Software Engineer."
+      keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
+      location={location}
+    />
+    <Main />
   </div>
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query indexQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`
