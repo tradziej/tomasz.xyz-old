@@ -1,0 +1,10 @@
+{
+  "name": "radziejewski.pl",
+  "version": "1.0.0",
+  "description": "Tomasz Radziejewski",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
+  "license": "MIT"
+}
