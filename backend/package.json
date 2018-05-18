@@ -1,0 +1,8 @@
+{
+  "name": "radziejewski.pl-backend",
+  "version": "1.0.0",
+  "description": "Tomasz Radziejewski",
+  "main": "index.js",
+  "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
+  "license": "MIT"
+}
