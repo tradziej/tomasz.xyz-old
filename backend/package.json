@@ -4,5 +4,10 @@
   "description": "Tomasz Radziejewski",
   "main": "index.js",
   "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2"
+  }
 }
