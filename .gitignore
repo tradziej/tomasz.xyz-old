@@ -6,3 +6,6 @@ yarn-error.log
 # Build directory
 /frontend/public
 .DS_Store
+
+# Misc
+.env
