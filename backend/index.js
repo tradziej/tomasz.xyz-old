@@ -1,13 +1,13 @@
 const express = require('express');
+const config = require('./config');
 const graphqlHTPP = require('express-graphql');
 const schema = require('./schema');
-const config = require('./config');
 
 const app = express();
 
 const root = {
   description: () => "Independent Full Stack Software Engineer",
-  skills: () => "Ruby, JavaScript, HTML, Git"
+  skills: () => "Ruby, JavaScript, HTML, Git",
 };
 
 app.use('/', graphqlHTPP({
