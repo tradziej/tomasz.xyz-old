@@ -11,6 +11,7 @@
   "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
   "license": "MIT",
   "dependencies": {
+    "endomondo-unofficial-api": "0.0.9",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
