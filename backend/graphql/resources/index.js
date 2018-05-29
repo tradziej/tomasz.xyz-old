@@ -8,6 +8,7 @@ const twitterQuery = require('./twitter/twitterQuery');
 const linkedinQuery = require('./linkedin/linkedinQuery');
 const githubQuery = require('./github/githubQuery');
 const spotifyQuery = require('./spotify/spotifyQuery');
+const endomondoQuery = require('./endomondo/endomondoQuery');
 
 module.exports = {
   skills: { type: GraphQLString },
@@ -18,4 +19,5 @@ module.exports = {
   linkedin: linkedinQuery,
   github: githubQuery,
   spotify: spotifyQuery,
+  endomondo: endomondoQuery,
 }
