@@ -5,14 +5,8 @@ const schema = require('./graphql/schema');
 
 const app = express();
 
-const root = {
-  description: () => "Independent Full Stack Software Engineer",
-  skills: () => "Ruby, JavaScript, HTML, Git",
-};
-
 app.use('/', graphqlHTPP({
   schema,
-  rootValue: root,
   graphiql: true
 }));
 

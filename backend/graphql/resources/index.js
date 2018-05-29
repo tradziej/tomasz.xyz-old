@@ -12,8 +12,18 @@ const endomondoQuery = require('./endomondo/endomondoQuery');
 const instagramQuery = require('./instagram/instagramQuery');
 
 module.exports = {
-  skills: { type: GraphQLString },
-  description: { type: GraphQLString },
+  skills: {
+    type: GraphQLString,
+    resolve: () => {
+      return 'Ruby, JavaScript, HTML, Git';
+    }
+  },
+  description: {
+    type: GraphQLString,
+    resolve: () => {
+      return 'Independent Full Stack Software Engineer';
+    }
+  },
   resume: resumeQuery,
   keybase: keybaseQuery,
   twitter: twitterQuery,
