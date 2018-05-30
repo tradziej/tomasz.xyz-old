@@ -1,6 +1,10 @@
 {
   skills
   description
+  resume {
+    format
+    url
+  }
   twitter(screen_name: "tradziej") {
     statuses_count
     screen_name
