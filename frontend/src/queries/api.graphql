@@ -17,11 +17,12 @@
     repositories_languages_count
   }
   spotify {
-    artists {
+    track {
       name
       url
     }
-    track {
+    artists {
+      id
       name
       url
     }
