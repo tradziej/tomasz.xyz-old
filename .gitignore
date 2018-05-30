@@ -9,3 +9,4 @@ yarn-error.log
 
 # Misc
 .env
+/frontend/.env.*

@@ -1,0 +1,43 @@
+{
+  skills
+  description
+  twitter(screen_name: "tradziej") {
+    statuses_count
+    screen_name
+  }
+  keybase {
+    login
+    url
+  }
+  github {
+    login
+    source_repositories_url
+    repositories_count
+    source_repositories_count
+    repositories_languages_count
+  }
+  spotify {
+    artists {
+      name
+      url
+    }
+    track {
+      name
+      url
+    }
+  }
+  endomondo {
+    distance_km
+  }
+  instagram {
+    medias {
+      url
+      src
+    }
+    user {
+      name
+      url
+      media_count
+    }
+  }
+}
