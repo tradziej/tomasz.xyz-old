@@ -10,6 +10,9 @@ let SpotifyArtist = new GraphQLObjectType({
   name: 'SpotifyArtist',
   description: 'Information about a Spotify Artist',
   fields: {
+    id: {
+      type: GraphQLString,
+    },
     name: {
       type: GraphQLString,
       resolve: (artist) => {
