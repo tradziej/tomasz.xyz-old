@@ -6,6 +6,8 @@
     url
   }
   twitter(screen_name: "tradziej") {
+    username
+    url
     statuses_count
     screen_name
   }
