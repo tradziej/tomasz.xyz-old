@@ -12,6 +12,7 @@ const fetchRepositioriesData = () => {
 
     return {
       username: 'tradziej',
+      url: 'https://github.com/tradziej',
       repositories_count: parsedResponse.length,
       source_repositories_count: sourceRepositories.length,
       source_repositories_url: 'https://github.com/tradziej?utf8=%E2%9C%93&tab=repositories&type=source',
