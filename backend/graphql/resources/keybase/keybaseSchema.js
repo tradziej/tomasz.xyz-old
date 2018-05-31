@@ -8,7 +8,7 @@ const {
 module.exports = new GraphQLObjectType({
   name: 'Keybase',
   fields: () => ({
-    login: { type: GraphQLString },
+    username: { type: GraphQLString },
     url: { type: GraphQLString },
   })
 });

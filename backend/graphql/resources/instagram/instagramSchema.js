@@ -14,7 +14,7 @@ let InstagramUser = new GraphQLObjectType({
   name: 'InstagramUser',
   description: 'Information about Instagram User',
   fields: {
-    name: {
+    username: {
       type: GraphQLString,
       resolve: user => {
         return user.username;

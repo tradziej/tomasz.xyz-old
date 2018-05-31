@@ -8,7 +8,7 @@ const linkedInQuery = {
     return {
       connections: '500+ connections',
       url: 'https://www.linkedin.com/in/radziejewski/',
-      name: 'radziejewski',
+      username: 'radziejewski',
     }
   }
 }

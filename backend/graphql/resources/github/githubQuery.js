@@ -11,7 +11,7 @@ const fetchRepositioriesData = () => {
       .filter((el, i, arr) => arr.indexOf(el) === i && el !== null);
 
     return {
-      login: 'tradziej',
+      username: 'tradziej',
       repositories_count: parsedResponse.length,
       source_repositories_count: sourceRepositories.length,
       source_repositories_url: 'https://github.com/tradziej?utf8=%E2%9C%93&tab=repositories&type=source',

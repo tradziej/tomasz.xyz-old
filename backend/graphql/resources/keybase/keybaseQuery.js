@@ -6,7 +6,7 @@ module.exports = {
   type: Keybase,
   resolve: () => {
     return {
-      login: 'tradziej',
+      username: 'tradziej',
       url: 'https://keybase.io/tradziej',
     }
   }
