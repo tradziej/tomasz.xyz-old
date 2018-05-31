@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { injectGlobal } from 'styled-components'
+import { background, selection } from './../styles/colors'
 
 import 'typeface-source-sans-pro/index.css'
 import Header from '../components/Header'
@@ -14,16 +15,16 @@ injectGlobal`
     box-sizing: border-box;
   }
   html {
-    background: #fbfef9;
-    color: #011627
+    background: ${background};
+    color: ${selection};
   }
   ::selection {
-    color: #fbfef9;
+    color: ${background};
     background-color: rgba(1, 22, 39, 0.996);
   }
   ::-moz-selection {
-    color: #fbfef9;
-    background: #011627;
+    color: ${background};
+    background: ${selection};
   }
   img::selection {
     background-color: rgba(1, 22, 39, 0.5);
