@@ -5,6 +5,7 @@ import NavLink from '../components/NavLink'
 
 const Footer = styled.footer`
   text-align: center;
+  line-height: 22px;
 `
 
 export default () => (
@@ -12,6 +13,6 @@ export default () => (
     <div>
       <NavLink href="mailto:tomasz@radziejewski.pl">tomasz@radziejewski.pl</NavLink>
     </div>
-    <div className="details">the best way to contact me</div>
+    <div>the best way to contact me</div>
   </Footer>
 )
