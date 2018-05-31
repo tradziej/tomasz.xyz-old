@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-const StyledLink = styled.a`
+const StyledLink = styled(OutboundLink) `
   color: #44b284;
   display: inline-block;
   text-decoration: none;
@@ -14,7 +15,7 @@ const StyledLink = styled.a`
 `
 
 const NavLink = ({ href, children }) => (
-  <StyledLink prefetch href={href}>
+  <StyledLink href={href}>
     {children}
   </StyledLink>
 )

@@ -28,5 +28,14 @@ module.exports = {
         url: process.env.GRAPHQL_API_URL,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_TRACKING_ID,
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
   ],
 }
