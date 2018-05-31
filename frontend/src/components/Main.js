@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import pluralize from 'pluralize'
 
 import NavLink from '../components/NavLink'
 import InstagramPhotos from '../components/InstagramPhotos'
@@ -13,19 +14,19 @@ const Details = styled.div`
   color: #2e294e;
 `
 
-const Skills = () => (
+const Skills = ({ query }) => (
   <li>
     <div>
-      <strong>Skills</strong>: Ruby, JavaScript, HTML, Git
+      <strong>Skills</strong>: {query}
     </div>
   </li>
 )
 
-const Resume = () => (
+const Resume = ({ query }) => (
   <li>
     <div>
       <strong>Resume</strong>:{' '}
-      <NavLink href="https://github.com/tradziej/resume/blob/master/tomasz_radziejewski.pdf">pdf</NavLink>
+      <NavLink href={query.url}>{query.format}</NavLink>
     </div>
   </li>
 )
@@ -39,23 +40,36 @@ const Blog = () => (
   </li>
 )
 
-const LinkedIn = () => (
+const LinkedIn = ({ query }) => (
   <li>
     <div>
-      <strong>LinkedIn</strong>: <NavLink href="#">radziejewski</NavLink>
+      <strong>LinkedIn</strong>: <NavLink href={query.url}>{query.username}</NavLink>
     </div>
-    <Details>665 connections</Details>
+    <Details>{query.connections}</Details>
   </li>
 )
 
-const Github = () => (
-  <li>
-    <div>
-      <strong>Github</strong>: <NavLink href="#">tradziej</NavLink>
-    </div>
-    <Details>54 repositories in 10 languages</Details>
-  </li>
-)
+const Github = ({ query }) => {
+  const {
+    username,
+    url,
+    repositories_languages_count,
+    repositories_count,
+    source_repositories_url,
+    source_repositories_count,
+  } = query;
+
+  return (
+    <li>
+      <div>
+        <strong>Github</strong>: <NavLink href={url}>{username}</NavLink>
+      </div>
+      <Details>
+        {repositories_count} {pluralize('repository', repositories_count)} in {repositories_languages_count} {pluralize('language', repositories_languages_count)} (<NavLink href={source_repositories_url}>{source_repositories_count} sources</NavLink>)
+      </Details>
+    </li>
+  )
+}
 
 const Keybase = () => (
   <li>
@@ -65,66 +79,67 @@ const Keybase = () => (
   </li>
 )
 
-const Twitter = () => (
+const Twitter = ({ query }) => (
   <li>
     <div>
-      <strong>Twitter</strong>: <NavLink href="#">tradziej</NavLink>
+      <strong>Twitter</strong>: <NavLink href={query.url}>{query.username}</NavLink>
     </div>
-    <Details>6 tweets</Details>
+    <Details>{query.statuses_count} {pluralize('tweet', query.statuses_count)}</Details>
   </li>
 )
 
-const Spotify = () => (
+const Spotify = ({ query }) => (
   <li>
     <div>
       <strong>Spotify</strong>
     </div>
     <Details>
-      recently played track: <NavLink href="">Black Hole Sun</NavLink> by <NavLink href="">Soundgarden</NavLink>
+      Recently played track: <NavLink href={query.track.url}>{query.track.name}</NavLink> by
+      {query.artists.map(function (artist) {
+        return <NavLink key={artist.id} href={artist.url}>{artist.name}</NavLink>;
+      }).reduce((accu, el) => {
+        return accu == null ? [el] : [...accu, ', ', el];
+      }, null)}
     </Details>
   </li>
 )
 
-const Endomondo = () => (
+const Endomondo = ({ query }) => (
   <li>
     <div>
       <strong>Endomondo</strong>
     </div>
-    <Details>I run 10km this week</Details>
+    <Details>
+      {query.distance_km > 0 ? `I run ${Number(query.distance_km).toFixed(2)}km this week` : 'I didn\'t run this week'}
+    </Details>
   </li>
 )
 
-const Instagram = () => (
+const Instagram = ({ query }) => (
   <li>
     <div>
-      <strong>Instagram</strong>: <NavLink href="#">tom3kr</NavLink>
+      <strong>Instagram</strong>: <NavLink href={query.user.url}>{query.user.username}</NavLink>
     </div>
-    <Details>11 photos, a few recent ones:</Details>
+    <Details>{query.user.media_count} {pluralize('photo', query.user.media_count)}, a few recent ones:</Details>
     <InstagramPhotos
-      photos={[
-        { src: 'https://picsum.photos/100/100?image=0', url: 'http://google.pl' },
-        { src: 'https://picsum.photos/100/100?image=1', url: 'http://google.pl' },
-        { src: 'https://picsum.photos/100/100?image=2', url: 'http://google.pl' },
-        { src: 'https://picsum.photos/100/100?image=3', url: 'http://google.pl' },
-        { src: 'https://picsum.photos/100/100?image=4', url: 'http://google.pl' },
-      ]}
+      photos={query.medias}
     />
   </li>
 )
 
-const Main = () => (
+const Main = ({ apiGraphQl }) => (
   <main>
     <List>
-      <Skills />
-      <Resume />
+      <Skills query={apiGraphQl.skills} />
+      <Resume query={apiGraphQl.resume} />
       <Blog />
-      <LinkedIn />
-      <Github />
+      <LinkedIn query={apiGraphQl.linkedin} />
+      <Github query={apiGraphQl.github} />
       <Keybase />
-      <Twitter />
-      <Spotify />
-      <Endomondo />
-      <Instagram />
+      <Twitter query={apiGraphQl.twitter} />
+      <Spotify query={apiGraphQl.spotify} />
+      <Endomondo query={apiGraphQl.endomondo} />
+      <Instagram query={apiGraphQl.instagram} />
     </List>
   </main>
 )

@@ -42,7 +42,7 @@ const Container = styled.div`
 
 const Layout = ({ children, data }) => (
   <Container>
-    <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.site.siteMetadata.description} />
+    <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.apiGraphQl.description} />
     {children()}
     <Footer />
   </Container>
@@ -60,8 +60,10 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-        description
       }
+    }
+    apiGraphQl {
+      description
     }
   }
 `

@@ -12,11 +12,15 @@ const Photo = styled.li`
   padding-right: 10px;
 `
 
+const Image = styled.img`
+  height: 120px;
+`
+
 const InstagramPhotos = ({ photos }) => {
   const items = photos.map((photo, index) => (
     <Photo key={index}>
       <a href={photo.url}>
-        <img src={photo.src} />
+        <Image src={photo.src} />
       </a>
     </Photo>
   ))

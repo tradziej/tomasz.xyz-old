@@ -11,7 +11,7 @@ const IndexPage = ({ data, location }) => (
       keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
       location={location}
     />
-    <Main />
+    <Main apiGraphQl={data.apiGraphQl} />
   </div>
 )
 
@@ -22,7 +22,62 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-        description
+      }
+    }
+    apiGraphQl {
+      skills
+      description
+      resume {
+        format
+        url
+      }
+      linkedin {
+        username
+        url
+        connections
+      }
+      github {
+        username
+        url
+        source_repositories_url
+        repositories_count
+        source_repositories_count
+        repositories_languages_count
+      }
+      keybase {
+        username
+        url
+      }
+      twitter {
+        username
+        url
+        screen_name
+        statuses_count
+      }
+      spotify {
+        track {
+          name
+          url
+        }
+        artists {
+          id
+          name
+          url
+        }
+      }
+      endomondo {
+        distance_km
+      }
+      instagram {
+        medias {
+          url
+          src
+        }
+        user {
+          username
+          url
+          media_count
+        }
       }
     }
   }
