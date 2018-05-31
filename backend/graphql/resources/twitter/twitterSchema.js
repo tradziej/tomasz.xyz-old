@@ -12,6 +12,18 @@ module.exports = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    username: {
+      type: GraphQLString,
+      resolve: (root) => {
+        return root.screen_name;
+      }
+    },
+    url: {
+      type: GraphQLString,
+      resolve: (root) => {
+        return `https://twitter.com/${root.screen_name}`;
+      }
+    },
     screen_name: { type: GraphQLString },
     followers_count: { type: GraphQLInt },
     friends_count: { type: GraphQLInt },
