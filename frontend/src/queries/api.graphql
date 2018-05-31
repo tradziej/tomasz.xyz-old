@@ -10,15 +10,18 @@
     screen_name
   }
   keybase {
-    login
+    username
     url
   }
   github {
-    login
+    username
     source_repositories_url
     repositories_count
     source_repositories_count
     repositories_languages_count
+  }
+  endomondo {
+    distance_km
   }
   spotify {
     track {
@@ -31,22 +34,19 @@
       url
     }
   }
-  endomondo {
-    distance_km
-  }
   instagram {
     medias {
       url
       src
     }
     user {
-      name
+      username
       url
       media_count
     }
   }
   linkedin {
-    name
+    username
     url
     connections
   }
