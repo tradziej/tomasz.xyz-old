@@ -45,4 +45,9 @@
       media_count
     }
   }
+  linkedin {
+    name
+    url
+    connections
+  }
 }
