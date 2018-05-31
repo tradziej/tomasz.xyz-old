@@ -44,7 +44,7 @@ const Layout = ({ children, data }) => (
   <Container>
     <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.apiGraphQl.description} />
     {children()}
-    <Footer />
+    <Footer email={data.apiGraphQl.email} />
   </Container>
 )
 
@@ -64,6 +64,7 @@ export const query = graphql`
     }
     apiGraphQl {
       description
+      email
     }
   }
 `

@@ -1,6 +1,7 @@
 {
   skills
   description
+  email
   resume {
     format
     url
