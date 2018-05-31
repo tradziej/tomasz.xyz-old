@@ -24,6 +24,12 @@ module.exports = {
       return 'Independent Full Stack Software Engineer';
     }
   },
+  email: {
+    type: GraphQLString,
+    resolve: () => {
+      return 'tomasz@radziejewski.pl';
+    }
+  },
   resume: resumeQuery,
   keybase: keybaseQuery,
   twitter: twitterQuery,
