@@ -72,10 +72,10 @@ const Github = ({ query }) => {
   )
 }
 
-const Keybase = () => (
+const Keybase = ({ query }) => (
   <li>
     <div>
-      <strong>Keybase</strong>: <NavLink href="#">tradziej</NavLink>
+      <strong>Keybase</strong>: <NavLink href={query.url}>{query.username}</NavLink>
     </div>
   </li>
 )
@@ -135,7 +135,7 @@ const Main = ({ apiGraphQl }) => (
       <Blog />
       <LinkedIn query={apiGraphQl.linkedin} />
       <Github query={apiGraphQl.github} />
-      <Keybase />
+      <Keybase query={apiGraphQl.keybase} />
       <Twitter query={apiGraphQl.twitter} />
       <Spotify query={apiGraphQl.spotify} />
       <Endomondo query={apiGraphQl.endomondo} />
