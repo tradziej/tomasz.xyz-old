@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import pluralize from 'pluralize'
-import { secondary } from './../styles/colors'
 
+import { secondary } from './../styles/colors'
+import Age from './Age'
 import NavLink from '../components/NavLink'
 import InstagramPhotos from '../components/InstagramPhotos'
 
@@ -130,6 +131,7 @@ const Instagram = ({ query }) => (
 const Main = ({ apiGraphQl }) => (
   <main>
     <List>
+      <Age birthday="1989-11-14T14:00+02:00" />
       <Skills query={apiGraphQl.skills} />
       <Resume query={apiGraphQl.resume} />
       <Blog />
