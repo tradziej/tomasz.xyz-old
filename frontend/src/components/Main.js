@@ -92,7 +92,7 @@ const Twitter = ({ query }) => (
 const Spotify = ({ query }) => (
   <li>
     <div>
-      <strong>Spotify</strong>
+      <strong>Spotify</strong>:
     </div>
     <Details>
       Recently played track: <NavLink href={query.track.url}>{query.track.name}</NavLink> by {query.artists.map((artist) => {
@@ -107,7 +107,7 @@ const Spotify = ({ query }) => (
 const Endomondo = ({ query }) => (
   <li>
     <div>
-      <strong>Endomondo</strong>
+      <strong>Endomondo</strong>:
     </div>
     <Details>
       {query.distance_km > 0 ? `I run ${Number(query.distance_km).toFixed(2)}km this week` : 'I didn\'t run this week'}
