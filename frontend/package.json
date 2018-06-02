@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
   "dependencies": {
+    "axios": "^0.18.0",
     "dotenv": "^5.0.1",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
