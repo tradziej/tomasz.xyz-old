@@ -1,19 +1,73 @@
 import React from 'react'
+import axios from 'axios'
+
 import Head from '../components/Head'
-
 import Main from '../components/Main'
+import apiQuery from './../queries/api.graphql'
 
-const IndexPage = ({ data, location }) => (
-  <div>
-    <Head
-      title={data.site.siteMetadata.title}
-      description="Tomasz Radziejewski. Full Stack Software Engineer."
-      keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
-      location={location}
-    />
-    <Main apiGraphQl={data.apiGraphQl} />
-  </div>
-)
+const api = axios.create({
+  baseURL: process.env.GRAPHQL_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+class IndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.data = props.data;
+    this.location = props.location;
+
+    this.state = {
+      api: this.data.apiGraphQl,
+    };
+
+    this.onFetchApi = this.onFetchApi.bind(this);
+
+    this.onFetchApi();
+  }
+
+  componentDidMount() {
+    const threeMinutes = 1000 * 60 * 3;
+
+    this.timer = setInterval(this.onFetchApi, threeMinutes);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  onFetchApi() {
+    api.post('', {
+      query: apiQuery.loc.source.body,
+      variables: {
+        twitter_screen_name: 'tradziej',
+      },
+    }).then((res) => {
+      this.setState((prevState, props) => ({
+        api: {
+          ...prevState.api,
+          ...res.data.data
+        }
+      }));
+    }).catch(err => { console.log(err) });
+  }
+
+  render() {
+    return (
+      <div>
+        <Head
+          title={this.data.site.siteMetadata.title}
+          description="Tomasz Radziejewski. Full Stack Software Engineer."
+          keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
+          location={this.location}
+        />
+        <Main apiGraphQl={this.state.api} />
+      </div>
+    )
+  }
+}
 
 export default IndexPage
 

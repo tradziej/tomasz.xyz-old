@@ -26,6 +26,9 @@ module.exports = {
       resolve: 'gatsby-source-graphql',
       options: {
         url: process.env.GRAPHQL_API_URL,
+        variables: {
+          twitter_screen_name: 'tradziej',
+        },
       },
     },
     {

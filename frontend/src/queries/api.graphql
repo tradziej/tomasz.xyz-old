@@ -1,4 +1,6 @@
-{
+query (
+  $twitter_screen_name: String!,
+) {
   skills
   description
   email
@@ -6,7 +8,7 @@
     format
     url
   }
-  twitter(screen_name: "tradziej") {
+  twitter(screen_name: $twitter_screen_name) {
     username
     url
     statuses_count
