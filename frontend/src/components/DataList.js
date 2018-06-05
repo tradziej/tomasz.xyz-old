@@ -33,12 +33,12 @@ const Resume = ({ query }) => (
   </li>
 )
 
-const Blog = () => (
+const Blog = ({ count }) => (
   <li>
     <div>
       <strong>Blog</strong>: <NavLink href="https://tomasz.xyz">tomasz.xyz</NavLink>
     </div>
-    <Details>1 post</Details>
+    <Details>{count} {pluralize('post', count)}</Details>
   </li>
 )
 
@@ -128,12 +128,12 @@ const Instagram = ({ query }) => (
   </li>
 )
 
-const DataList = ({ apiGraphQl }) => (
+const DataList = ({ apiGraphQl, blogPostsCount }) => (
   <List>
     <Age birthday="1989-11-14T14:00+02:00" />
     <Skills query={apiGraphQl.skills} />
     <Resume query={apiGraphQl.resume} />
-    <Blog />
+    <Blog count={blogPostsCount} />
     <LinkedIn query={apiGraphQl.linkedin} />
     <Github query={apiGraphQl.github} />
     <Keybase query={apiGraphQl.keybase} />

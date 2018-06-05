@@ -63,7 +63,7 @@ class IndexPage extends React.Component {
           keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
           location={this.location}
         />
-        <DataList apiGraphQl={this.state.api} />
+        <DataList apiGraphQl={this.state.api} blogPostsCount={this.data.allMarkdownRemark.totalCount} />
       </div>
     )
   }
@@ -77,6 +77,9 @@ export const query = graphql`
       siteMetadata {
         title
       }
+    }
+    allMarkdownRemark {
+      totalCount
     }
     apiGraphQl {
       skills
@@ -135,4 +138,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
