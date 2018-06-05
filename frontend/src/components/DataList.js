@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import pluralize from 'pluralize'
 
-import { secondary } from './../styles/colors'
+import { martinique } from './../styles/colors'
 import Age from './Age'
 import NavLink from '../components/NavLink'
 import InstagramPhotos from '../components/InstagramPhotos'
@@ -13,7 +13,7 @@ const List = styled.ul`
 `
 
 const Details = styled.div`
-  color: ${secondary};
+  color: ${martinique};
 `
 
 const Skills = ({ query }) => (

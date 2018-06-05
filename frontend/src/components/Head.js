@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { background } from './../styles/colors'
+import { feta } from './../styles/colors'
 
 const Head = props => {
   const domain = 'https://radziejewski.pl'
@@ -46,9 +46,9 @@ const Head = props => {
       <link rel="manifest" href="/public/favicon/site.webmanifest" />
       <link rel="mask-icon" href="/public/favicon/safari-pinned-tab.svg" color="#fbfef9" />
       <link rel="shortcut icon" href="/public/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content={background} />
+      <meta name="msapplication-TileColor" content={feta} />
       <meta name="msapplication-config" content="/public/favicon/browserconfig.xml" />
-      <meta name="theme-color" content={background} />
+      <meta name="theme-color" content={feta} />
     </Helmet>
   )
 }

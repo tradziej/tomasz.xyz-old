@@ -1,10 +1,10 @@
 import Typography from 'typography'
-import { selection } from './../styles/colors'
+import { midnight } from './../styles/colors'
 
 export default new Typography({
   baseFontSize: '18px',
   baseLineHeight: 1.666,
-  bodyColor: selection,
+  bodyColor: midnight,
   headerFontFamily: [
     'Source Sans Pro',
     '-apple-system',

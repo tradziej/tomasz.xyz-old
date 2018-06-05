@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { injectGlobal } from 'styled-components'
 
 import 'typeface-source-sans-pro/index.css'
-import { background, selection, boulder } from './../styles/colors'
+import { feta, midnight, boulder } from './../styles/colors'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -15,16 +15,16 @@ injectGlobal`
     box-sizing: border-box;
   }
   html {
-    background: ${background};
-    color: ${selection};
+    background: ${feta};
+    color: ${midnight};
   }
   ::selection {
-    color: ${background};
+    color: ${feta};
     background-color: rgba(1, 22, 39, 0.996);
   }
   ::-moz-selection {
-    color: ${background};
-    background: ${selection};
+    color: ${feta};
+    background: ${midnight};
   }
   img::selection {
     background-color: rgba(1, 22, 39, 0.5);

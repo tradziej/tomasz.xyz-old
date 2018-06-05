@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
-import { primary } from './../styles/colors'
+import { oceanGreen } from './../styles/colors'
 
 const StyledLink = styled(OutboundLink) `
-  color: ${primary};
+  color: ${oceanGreen};
   display: inline-block;
   text-decoration: none;
   position: relative;

@@ -1,5 +1,5 @@
-export const primary = '#44b284';
-export const secondary = '#2e294e';
-export const background = '#fbfef9';
-export const selection = '#011627';
+export const oceanGreen = '#44b284';
+export const martinique = '#2e294e';
+export const feta = '#fbfef9';
+export const midnight = '#011627';
 export const boulder = '#767676';
