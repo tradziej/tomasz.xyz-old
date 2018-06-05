@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import Head from '../components/Head'
-import Main from '../components/Main'
+import DataList from '../components/DataList'
 import apiQuery from './../queries/api.graphql'
 
 const api = axios.create({
@@ -63,7 +63,7 @@ class IndexPage extends React.Component {
           keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
           location={this.location}
         />
-        <Main apiGraphQl={this.state.api} />
+        <DataList apiGraphQl={this.state.api} />
       </div>
     )
   }

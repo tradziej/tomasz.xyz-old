@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { injectGlobal } from 'styled-components'
-import { background, selection } from './../styles/colors'
 
 import 'typeface-source-sans-pro/index.css'
+import { background, selection, boulder } from './../styles/colors'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -41,10 +41,23 @@ const Container = styled.div`
   }
 `
 
+const Line = styled.hr`
+  color: ${boulder};
+  background-color: ${boulder};
+  text-align: center;
+  margin: 15px auto;
+  width: 60%;
+  border: none;
+`
+
+
 const Layout = ({ children, data }) => (
   <Container>
     <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.apiGraphQl.description} />
-    {children()}
+    <main>
+      {children()}
+      <Line />
+    </main>
     <Footer email={data.apiGraphQl.email} />
   </Container>
 )

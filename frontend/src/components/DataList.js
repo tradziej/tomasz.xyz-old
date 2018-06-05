@@ -128,22 +128,20 @@ const Instagram = ({ query }) => (
   </li>
 )
 
-const Main = ({ apiGraphQl }) => (
-  <main>
-    <List>
-      <Age birthday="1989-11-14T14:00+02:00" />
-      <Skills query={apiGraphQl.skills} />
-      <Resume query={apiGraphQl.resume} />
-      <Blog />
-      <LinkedIn query={apiGraphQl.linkedin} />
-      <Github query={apiGraphQl.github} />
-      <Keybase query={apiGraphQl.keybase} />
-      <Twitter query={apiGraphQl.twitter} />
-      <Spotify query={apiGraphQl.spotify} />
-      <Endomondo query={apiGraphQl.endomondo} />
-      <Instagram query={apiGraphQl.instagram} />
-    </List>
-  </main>
+const DataList = ({ apiGraphQl }) => (
+  <List>
+    <Age birthday="1989-11-14T14:00+02:00" />
+    <Skills query={apiGraphQl.skills} />
+    <Resume query={apiGraphQl.resume} />
+    <Blog />
+    <LinkedIn query={apiGraphQl.linkedin} />
+    <Github query={apiGraphQl.github} />
+    <Keybase query={apiGraphQl.keybase} />
+    <Twitter query={apiGraphQl.twitter} />
+    <Spotify query={apiGraphQl.spotify} />
+    <Endomondo query={apiGraphQl.endomondo} />
+    <Instagram query={apiGraphQl.instagram} />
+  </List>
 )
 
-export default Main
+export default DataList
