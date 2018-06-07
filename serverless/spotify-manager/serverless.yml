@@ -21,6 +21,11 @@ provider:
   name: aws
   runtime: nodejs6.10
   profile: serverless
+  region: ${file(./serverless.env.yml):${opt:stage}.REGION}
+  environment: ${file(./serverless.env.yml):${opt:stage}}
+
+plugins:
+  - serverless-offline
 
 # you can overwrite defaults here
 #  stage: dev
@@ -58,6 +63,11 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors: true
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
