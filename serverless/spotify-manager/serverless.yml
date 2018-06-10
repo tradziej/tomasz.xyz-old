@@ -1,21 +1,4 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
-
 service: spotify-manager
-
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
-# frameworkVersion: "=X.X.X"
 
 provider:
   name: aws
@@ -42,6 +25,12 @@ provider:
 plugins:
   - serverless-offline
   - serverless-offline-scheduler
+
+functions:
+  refresh:
+    handler: handler.process
+    events:
+      - schedule: rate(58 minutes)
 
 # you can overwrite defaults here
 #  stage: dev
@@ -75,12 +64,6 @@ plugins:
 #  exclude:
 #    - exclude-me.js
 #    - exclude-me-dir/**
-
-functions:
-  refresh:
-    handler: handler.process
-    events:
-      - schedule: rate(58 minutes)
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
