@@ -20,12 +20,28 @@ service: spotify-manager
 provider:
   name: aws
   runtime: nodejs6.10
+  memorySize: 128
   profile: serverless
   region: ${file(./serverless.env.yml):${opt:stage}.REGION}
   environment: ${file(./serverless.env.yml):${opt:stage}}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - sdb:GetAttributes
+        - sdb:PutAttributes
+        - sdb:Select
+      Resource:
+        Fn::Join:
+          - ":"
+          -
+            - "arn:aws:sdb"
+            - Ref: AWS::Region
+            - Ref: AWS::AccountId
+            - domain/${file(./serverless.env.yml):${opt:stage}.SDB_DOMAIN}
 
 plugins:
   - serverless-offline
+  - serverless-offline-scheduler
 
 # you can overwrite defaults here
 #  stage: dev
@@ -61,13 +77,10 @@ plugins:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  refresh:
+    handler: handler.process
     events:
-      - http:
-          path: hello
-          method: get
-          cors: true
+      - schedule: rate(58 minutes)
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
