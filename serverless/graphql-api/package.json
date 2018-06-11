@@ -1,0 +1,26 @@
+{
+  "name": "radziejewski.pl-graphql-api",
+  "version": "1.0.0",
+  "description": "Tomasz Radziejewski",
+  "scripts": {
+    "local": "serverless offline -s local start",
+    "deploy": "serverless deploy -s production",
+    "destroy": "serverless remove -s production"
+  },
+  "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.251.1",
+    "endomondo-unofficial-api": "0.0.9",
+    "graphql": "^0.13.2",
+    "instagram-node": "^0.5.8",
+    "luxon": "^1.2.1",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "spotify-web-api-node": "^3.1.1",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "serverless-offline": "^3.25.4"
+  }
+}
