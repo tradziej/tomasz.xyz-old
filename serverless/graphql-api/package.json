@@ -10,7 +10,7 @@
   "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.251.1",
+    "aws-sdk": "^2.254.1",
     "endomondo-unofficial-api": "0.0.9",
     "graphql": "^0.13.2",
     "instagram-node": "^0.5.8",

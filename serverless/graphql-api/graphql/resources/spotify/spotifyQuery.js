@@ -7,11 +7,13 @@ const SpotifyRecentlyPlayed = require('./spotifySchema');
 const spotifyQuery = {
   type: SpotifyRecentlyPlayed,
   resolve: () => {
-    return spotifyApi.getMyRecentlyPlayedTracks({
-      limit: 1
-    }).then(function (response) {
-      return response.body;
-    }, function (err) {
+    return spotifyApi.then(api => {
+      return api.getMyRecentlyPlayedTracks({ limit: 1 }).then(response => {
+        return response.body;
+      }, err => {
+        console.log('Something went wrong!', err);
+      });
+    }, err => {
       console.log('Something went wrong!', err);
     });
   }
