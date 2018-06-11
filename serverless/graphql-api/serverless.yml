@@ -24,8 +24,13 @@ plugins:
   - serverless-offline
 
 functions:
-  hello:
-    handler: handler.hello
+  graphql:
+    handler: handler.query
+    events:
+      - http:
+          path: query
+          method: post
+          cors: true
 
 # you can overwrite defaults here
 #  stage: dev

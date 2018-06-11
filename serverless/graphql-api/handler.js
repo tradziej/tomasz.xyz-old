@@ -1,16 +1,17 @@
 'use strict';
 
-module.exports.hello = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
-  };
+const { graphql } = require('graphql');
+const schema = require('./graphql/schema');
 
-  callback(null, response);
+module.exports.query = (event, context, callback) => {
+  const { query, variables } = JSON.parse(event.body);
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+  graphql(schema, query, null, context, variables)
+    .then(
+      result => callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(result)
+      }),
+      err => callback(err)
+    );
 };
