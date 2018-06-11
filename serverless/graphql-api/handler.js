@@ -10,6 +10,10 @@ module.exports.query = (event, context, callback) => {
     .then(
       result => callback(null, {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
         body: JSON.stringify(result)
       }),
       err => callback(err)
