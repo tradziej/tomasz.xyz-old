@@ -4,8 +4,8 @@
   "description": "Tomasz Radziejewski",
   "scripts": {
     "local": "serverless offline -s local start",
-    "deploy": "serverless deploy -s production",
-    "destroy": "serverless remove -s production"
+    "deploy": "serverless deploy -s prod",
+    "destroy": "serverless remove -s prod"
   },
   "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
   "license": "MIT",
