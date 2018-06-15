@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const domain = 'https://radziejewski.pl'
+const domain = 'https://tomasz.xyz'
 
 const HeaderLink = styled.a`
   text-decoration: none;

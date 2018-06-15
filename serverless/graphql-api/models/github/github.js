@@ -12,7 +12,7 @@ module.exports = () => {
       per_page: 100,
     },
     headers: {
-      'User-Agent': 'API for radziejewski.pl',
+      'User-Agent': 'API for tomasz.xyz',
       'Authorization': `token ${githubPersonalAccessToken}`,
     }
   })
