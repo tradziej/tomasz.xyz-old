@@ -31,6 +31,9 @@
     "develop": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -drf ./.cache/* && rm -drf ./public/*",
+    "deploy": "npm run clean && gatsby build --prefix-paths && aws s3 sync --profile serverless --acl public-read --sse --delete ./public/ s3://tomasz.xyz",
+    "postdeploy": "aws cloudfront create-invalidation --profile serverless --distribution-id E2AV88I1JP3UOW --paths '/*'"
   }
 }
