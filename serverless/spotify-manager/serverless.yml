@@ -30,7 +30,7 @@ functions:
   refresh:
     handler: handler.process
     events:
-      - schedule: rate(58 minutes)
+      - schedule: rate(30 minutes)
 
 # you can overwrite defaults here
 #  stage: dev
