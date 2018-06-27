@@ -1,9 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Link from 'gatsby-link';
 
-const domain = 'https://tomasz.xyz'
-
-const HeaderLink = styled.a`
+const HeaderLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   &.is-active {
@@ -18,7 +17,7 @@ const Description = styled.section`
 const Header = ({ siteTitle, siteDescription }) => (
   <header>
     <h1>
-      <HeaderLink href={domain}>{siteTitle}</HeaderLink>
+      <HeaderLink to="/">{siteTitle}</HeaderLink>
     </h1>
     <Description>{siteDescription}</Description>
   </header>
