@@ -5,6 +5,7 @@ import pluralize from 'pluralize'
 import { martinique } from './../styles/colors'
 import Age from './Age'
 import NavLink from '../components/NavLink'
+import StyledLink from '../components/StyledLink'
 import InstagramPhotos from '../components/InstagramPhotos'
 
 const List = styled.ul`
@@ -36,7 +37,7 @@ const Resume = ({ query }) => (
 const Blog = ({ count }) => (
   <li>
     <div>
-      <strong>Blog</strong>: <NavLink href="https://tomasz.xyz">tomasz.xyz</NavLink>
+      <strong>Blog</strong>: <StyledLink to="/blog">here</StyledLink>
     </div>
     <Details>{count} {pluralize('post', count)}</Details>
   </li>
