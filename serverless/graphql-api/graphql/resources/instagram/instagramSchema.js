@@ -51,6 +51,12 @@ let InstagramMedia = new GraphQLObjectType({
         return media.images.standard_resolution.url;
       }
     },
+    caption: {
+      type: GraphQLString,
+      resolve: media => {
+        return media.caption ? media.caption.text : 'Instagram medium';
+      }
+    }
   }
 });
 
