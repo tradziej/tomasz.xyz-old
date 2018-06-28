@@ -44,6 +44,7 @@ query (
     medias {
       url
       src
+      caption
     }
     user {
       username

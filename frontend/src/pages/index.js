@@ -129,6 +129,7 @@ export const query = graphql`
         medias {
           url
           src
+          caption
         }
         user {
           username

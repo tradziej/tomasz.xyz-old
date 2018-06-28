@@ -31,7 +31,7 @@ const InstagramPhotos = ({ photos }) => {
   const items = photos.map((photo, index) => (
     <Photo key={index}>
       <a href={photo.url}>
-        <Image src={photo.src} />
+        <Image src={photo.src} alt={photo.caption} />
       </a>
     </Photo>
   ))
