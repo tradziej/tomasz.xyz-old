@@ -21,6 +21,7 @@
     "twitter": "^1.7.1"
   },
   "devDependencies": {
+    "serverless-domain-manager": "^2.4.0",
     "serverless-offline": "^3.25.4"
   }
 }
