@@ -52,7 +52,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Tomasz Radziejewski',
-        short_name: 'Tomasz Radziejewski',
+        short_name: 'T.R.',
         start_url: '/',
         background_color: '#fbfef9',
         theme_color: '#fbfef9',
