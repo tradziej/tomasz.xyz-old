@@ -48,5 +48,29 @@ module.exports = {
       }
     },
     'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Tomasz Radziejewski',
+        short_name: 'Tomasz Radziejewski',
+        start_url: '/',
+        background_color: '#fbfef9',
+        theme_color: '#fbfef9',
+        display: 'standalone',
+        icons: [
+          {
+            src: `/public/favicon/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/public/favicon/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 }
