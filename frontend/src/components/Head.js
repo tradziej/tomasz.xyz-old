@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { feta } from './../styles/colors'
 
 const Head = props => {
-  const domain = 'https://tomasz.xyz'
+  const domain = process.env.APP_URL;
   const pathname = props.location.pathname === '/' ? '' : props.location.pathname
   const avatar = `${domain}/public/static/images/avatar.jpg`
 
