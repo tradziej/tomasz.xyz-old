@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Tomasz Radziejewski",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "setup": "cd frontend && yarn && cd ../serverless/graphql-api && yarn && cd ../spotify-manager && yarn",
+    "deploy:frontend": "cd frontend && yarn run deploy",
+    "deploy:serverless": "cd serverless/graphql-api && yarn run deploy && cd ../spotify-manager && yarn run deploy",
+    "destroy:serverless": "cd serverless/graphql-api && yarn run destroy && cd ../spotify-manager && yarn run destroy"
+  },
   "author": "Tomasz Radziejewski <tomasz@radziejewski.pl>",
   "license": "MIT",
   "devDependencies": {
