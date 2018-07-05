@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import pluralize from 'pluralize'
 
-import { martinique } from './../styles/colors'
 import Age from './Age'
 import NavLink from '../components/NavLink'
 import StyledLink from '../components/StyledLink'
@@ -14,7 +13,7 @@ const List = styled.ul`
 `
 
 const Details = styled.div`
-  color: ${martinique};
+  color: ${props => props.theme.colors.martinique};
 `
 
 const Skills = ({ query }) => (

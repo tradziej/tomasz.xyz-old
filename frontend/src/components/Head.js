@@ -1,12 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { feta } from './../styles/colors'
+import { withTheme } from 'styled-components'
 import { withPrefix } from 'gatsby-link'
 
 const Head = props => {
   const domain = process.env.APP_URL;
   const pathname = props.location.pathname === '/' ? '' : props.location.pathname
   const avatar = `${domain}/public/static/images/avatar.jpg`
+  const feta = props.theme.colors.feta
 
   return (
     <Helmet>
@@ -53,4 +54,4 @@ const Head = props => {
   )
 }
 
-export default Head
+export default withTheme(Head)

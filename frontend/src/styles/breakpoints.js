@@ -1,1 +1,0 @@
-export const phone = '(max-width: 599px)'

@@ -1,5 +1,7 @@
 import Typography from 'typography'
-import { midnight } from './../styles/colors'
+import { theme } from '@styles'
+
+const { colors: { midnight } } = theme
 
 export default new Typography({
   baseFontSize: '18px',

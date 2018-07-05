@@ -1,35 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
-import 'typeface-source-sans-pro/index.css'
-import { feta, midnight, boulder } from './../styles/colors'
+import { globalStyles, theme } from '@styles'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-injectGlobal`
-  * {
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-sizing: border-box;
-  }
-  html {
-    background: ${feta};
-    color: ${midnight};
-  }
-  ::selection {
-    color: ${feta};
-    background-color: rgba(1, 22, 39, 0.996);
-  }
-  ::-moz-selection {
-    color: ${feta};
-    background: ${midnight};
-  }
-  img::selection {
-    background-color: rgba(1, 22, 39, 0.5);
-  }
-`
+// Injecting global styles
+globalStyles()
 
 const Container = styled.div`
   height: 100%;
@@ -42,8 +20,8 @@ const Container = styled.div`
 `
 
 const Line = styled.hr`
-  color: ${boulder};
-  background-color: ${boulder};
+  color: ${theme.colors.boulder};
+  background-color: ${theme.colors.boulder};
   text-align: center;
   margin: 15px auto;
   width: 60%;
@@ -52,14 +30,16 @@ const Line = styled.hr`
 
 
 const Layout = ({ children, data }) => (
-  <Container>
-    <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.apiGraphQl.description} />
-    <main>
-      {children()}
-      <Line />
-    </main>
-    <Footer email={data.apiGraphQl.email} />
-  </Container>
+  <ThemeProvider theme={theme}>
+    <Container>
+      <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.apiGraphQl.description} />
+      <main>
+        {children()}
+        <Line />
+      </main>
+      <Footer email={data.apiGraphQl.email} />
+    </Container>
+  </ThemeProvider>
 )
 
 export default Layout

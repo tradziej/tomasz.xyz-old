@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { rhythm, scale } from '../utils/typography';
-import { martinique, midnight } from './../styles/colors';
 import StyledLink from '../components/StyledLink';
 
 const PostedTime = styled.p`
@@ -12,11 +11,11 @@ const PostedTime = styled.p`
 `;
 
 const Content = styled.div`
-  color: ${martinique};
+  color: ${props => props.theme.colors.martinique};
 `;
 
 const Title = styled.h2`
-  color: ${midnight};
+  color: ${props => props.theme.colors.midnight};
   margin-bottom: ${rhythm(2 / 3)};
 `;
 

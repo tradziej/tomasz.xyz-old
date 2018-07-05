@@ -4,6 +4,9 @@ exports.modifyWebpackConfig = ({ config }) => {
   const newConfig = config.merge({
     resolve: {
       root: path.resolve(config._config.context, 'src'),
+      alias: {
+        '@styles': path.resolve(__dirname, 'src/styles/'),
+      },
     },
   });
 
