@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 export const media = {
   phone: (...args) => css`
@@ -6,4 +6,4 @@ export const media = {
       ${css(...args)};
     }
   `,
-}
+};

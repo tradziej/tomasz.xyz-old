@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class Age extends React.Component {
   constructor(props) {
     super(props);
 
-    this.birthday = (new Date(props.birthday)).getTime();
+    this.birthday = new Date(props.birthday).getTime();
 
     this.state = {
       age: this.calculateAge(),
@@ -17,8 +17,8 @@ class Age extends React.Component {
       this.setState((prevState, props) => {
         return {
           age: this.calculateAge(),
-        }
-      })
+        };
+      });
     }, 50);
   }
 
@@ -38,9 +38,9 @@ class Age extends React.Component {
       <li>
         <div>
           <strong>Age</strong>: {this.state.age.toFixed(9)}
-        </div >
-      </li >
-    )
+        </div>
+      </li>
+    );
   }
 }
 
@@ -48,4 +48,4 @@ export default Age;
 
 Age.propTypes = {
   birthday: PropTypes.string.isRequired,
-}
+};

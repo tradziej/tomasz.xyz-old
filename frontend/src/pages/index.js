@@ -1,8 +1,8 @@
-import React from 'react'
-import axios from 'axios'
+import React from 'react';
+import axios from 'axios';
 
-import { Head, DataList } from '@components'
-import apiQuery from './../queries/api.graphql'
+import { Head, DataList } from '@components';
+import apiQuery from './../queries/api.graphql';
 
 const api = axios.create({
   baseURL: process.env.GRAPHQL_API_URL,
@@ -38,19 +38,24 @@ class IndexPage extends React.Component {
   }
 
   onFetchApi() {
-    api.post('', {
-      query: apiQuery.loc.source.body,
-      variables: {
-        twitter_screen_name: 'tradziej',
-      },
-    }).then((res) => {
-      this.setState((prevState, props) => ({
-        api: {
-          ...prevState.api,
-          ...res.data.data
-        }
-      }));
-    }).catch(err => { console.log(err) });
+    api
+      .post('', {
+        query: apiQuery.loc.source.body,
+        variables: {
+          twitter_screen_name: 'tradziej',
+        },
+      })
+      .then(res => {
+        this.setState((prevState, props) => ({
+          api: {
+            ...prevState.api,
+            ...res.data.data,
+          },
+        }));
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -62,13 +67,16 @@ class IndexPage extends React.Component {
           keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
           location={this.location}
         />
-        <DataList apiGraphQl={this.state.api} blogPostsCount={this.data.allMarkdownRemark.totalCount} />
+        <DataList
+          apiGraphQl={this.state.api}
+          blogPostsCount={this.data.allMarkdownRemark.totalCount}
+        />
       </div>
-    )
+    );
   }
 }
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query indexQuery {

@@ -27,7 +27,7 @@ const BlogIndex = ({ data }) => {
         })}
     </div>
   );
-}
+};
 
 export const blogQuery = graphql`
   query BlogQuery {

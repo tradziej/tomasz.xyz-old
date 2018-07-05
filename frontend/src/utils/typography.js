@@ -1,7 +1,9 @@
-import Typography from 'typography'
-import { theme } from '@styles'
+import Typography from 'typography';
+import { theme } from '@styles';
 
-const { colors: { midnight } } = theme
+const {
+  colors: { midnight },
+} = theme;
 
 export default new Typography({
   baseFontSize: '18px',
@@ -30,4 +32,4 @@ export default new Typography({
       marginBottom: rhythm(1 / 2),
     },
   }),
-})
+});

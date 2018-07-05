@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { ThemeProvider } from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { ThemeProvider } from 'styled-components';
 
-import { globalStyles, theme } from '@styles'
-import { Header, Footer } from '@components'
+import { globalStyles, theme } from '@styles';
+import { Header, Footer } from '@components';
 
 // Injecting global styles
-globalStyles()
+globalStyles();
 
 const Container = styled.div`
   height: 100%;
@@ -16,7 +16,7 @@ const Container = styled.div`
   @media only screen and (max-width: 800px) {
     width: 90%;
   }
-`
+`;
 
 const Line = styled.hr`
   color: ${theme.colors.boulder};
@@ -25,13 +25,15 @@ const Line = styled.hr`
   margin: 15px auto;
   width: 60%;
   border: none;
-`
-
+`;
 
 const Layout = ({ children, data }) => (
   <ThemeProvider theme={theme}>
     <Container>
-      <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.apiGraphQl.description} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        siteDescription={data.apiGraphQl.description}
+      />
       <main>
         {children()}
         <Line />
@@ -39,14 +41,14 @@ const Layout = ({ children, data }) => (
       <Footer email={data.apiGraphQl.email} />
     </Container>
   </ThemeProvider>
-)
+);
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.func,
   data: PropTypes.object,
-}
+};
 
 export const query = graphql`
   query siteMetadataQuery {
@@ -60,4 +62,4 @@ export const query = graphql`
       email
     }
   }
-`
+`;

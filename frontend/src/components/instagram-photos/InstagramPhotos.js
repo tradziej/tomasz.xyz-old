@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { media } from '@styles'
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '@styles';
 
 const List = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-`
+`;
 
 const Photo = styled.li`
   display: inline-block;
@@ -16,7 +16,7 @@ const Photo = styled.li`
     margin: 0;
     padding: 0;
   `};
-`
+`;
 
 const Image = styled.img`
   height: 110px;
@@ -25,7 +25,7 @@ const Image = styled.img`
     height: auto;
     margin: 0;
   `};
-`
+`;
 
 const InstagramPhotos = ({ photos }) => {
   const items = photos.map((photo, index) => (
@@ -34,9 +34,9 @@ const InstagramPhotos = ({ photos }) => {
         <Image src={photo.src} alt={photo.caption} />
       </a>
     </Photo>
-  ))
+  ));
 
-  return <List>{items}</List>
-}
+  return <List>{items}</List>;
+};
 
-export default InstagramPhotos
+export default InstagramPhotos;

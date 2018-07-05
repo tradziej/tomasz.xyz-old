@@ -8,11 +8,11 @@ const HeaderLink = styled(Link)`
   &.is-active {
     text-decoration: underline;
   }
-`
+`;
 
 const Description = styled.section`
   padding-bottom: 20px;
-`
+`;
 
 const Header = ({ siteTitle, siteDescription }) => (
   <header>
@@ -21,6 +21,6 @@ const Header = ({ siteTitle, siteDescription }) => (
     </h1>
     <Description>{siteDescription}</Description>
   </header>
-)
+);
 
-export default Header
+export default Header;

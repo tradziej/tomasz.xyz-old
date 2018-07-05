@@ -1,6 +1,6 @@
-import { injectGlobal } from 'styled-components'
-import { theme } from './theme'
-import 'typeface-source-sans-pro/index.css'
+import { injectGlobal } from 'styled-components';
+import { theme } from './theme';
+import 'typeface-source-sans-pro/index.css';
 
 export const globalStyles = () => injectGlobal`
   * {
@@ -24,4 +24,4 @@ export const globalStyles = () => injectGlobal`
   img::selection {
     background-color: rgba(1, 22, 39, 0.5);
   }
-`
+`;

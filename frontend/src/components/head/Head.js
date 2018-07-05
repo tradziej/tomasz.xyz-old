@@ -1,13 +1,14 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { withTheme } from 'styled-components'
-import { withPrefix } from 'gatsby-link'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { withTheme } from 'styled-components';
+import { withPrefix } from 'gatsby-link';
 
 const Head = props => {
   const domain = process.env.APP_URL;
-  const pathname = props.location.pathname === '/' ? '' : props.location.pathname
-  const avatar = `${domain}/public/static/images/avatar.jpg`
-  const feta = props.theme.colors.feta
+  const pathname =
+    props.location.pathname === '/' ? '' : props.location.pathname;
+  const avatar = `${domain}/public/static/images/avatar.jpg`;
+  const feta = props.theme.colors.feta;
 
   return (
     <Helmet>
@@ -42,16 +43,37 @@ const Head = props => {
       <meta name="og:image" content={avatar} />
       <meta name="twitter:image:src" content={avatar} />
 
-      <link rel="apple-touch-icon" sizes="180x180" href={withPrefix("/public/favicon/apple-touch-icon.png")} />
-      <link rel="icon" type="image/png" sizes="32x32" href={withPrefix("/public/favicon/favicon-32x32.png")} />
-      <link rel="icon" type="image/png" sizes="16x16" href={withPrefix("/public/favicon/favicon-16x16.png")} />
-      <link rel="manifest" href={withPrefix("/manifest.webmanifest")} />
-      <link rel="mask-icon" href={withPrefix("/public/favicon/safari-pinned-tab.svg")} color="#fbfef9" />
-      <link rel="shortcut icon" href={withPrefix("/public/favicon/favicon.ico")} />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href={withPrefix('/public/favicon/apple-touch-icon.png')}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href={withPrefix('/public/favicon/favicon-32x32.png')}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href={withPrefix('/public/favicon/favicon-16x16.png')}
+      />
+      <link rel="manifest" href={withPrefix('/manifest.webmanifest')} />
+      <link
+        rel="mask-icon"
+        href={withPrefix('/public/favicon/safari-pinned-tab.svg')}
+        color="#fbfef9"
+      />
+      <link
+        rel="shortcut icon"
+        href={withPrefix('/public/favicon/favicon.ico')}
+      />
       <meta name="msapplication-TileColor" content={feta} />
       <meta name="theme-color" content={feta} />
     </Helmet>
-  )
-}
+  );
+};
 
-export default withTheme(Head)
+export default withTheme(Head);

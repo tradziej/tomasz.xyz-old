@@ -36,9 +36,7 @@ export default ({ data }) => {
       </Back>
       <Title>{post.frontmatter.title}</Title>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <PostedTime>
-        Posted {post.frontmatter.date}
-      </PostedTime>
+      <PostedTime>Posted {post.frontmatter.date}</PostedTime>
     </Content>
   );
 };

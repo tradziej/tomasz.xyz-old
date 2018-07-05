@@ -26,12 +26,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
       name: `slug`,
       value: slug,
-    })
+    });
   }
 };
 
@@ -51,8 +51,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         }
       }
-    `
-    ).then(result => {
+    `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
@@ -64,6 +63,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         });
       });
       resolve();
-    })
-  })
+    });
+  });
 };

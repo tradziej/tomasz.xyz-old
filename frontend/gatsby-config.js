@@ -44,8 +44,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages/`
-      }
+        path: `${__dirname}/src/pages/`,
+      },
     },
     'gatsby-transformer-remark',
     {
@@ -73,4 +73,4 @@ module.exports = {
     },
     'gatsby-plugin-offline',
   ],
-}
+};
