@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rhythm } from '../utils/typography';
+import { rhythm } from '../../utils/typography';
 
 const Time = styled.time`
   display: block;

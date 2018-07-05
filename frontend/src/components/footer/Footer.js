@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import NavLink from '../components/NavLink'
+import { NavLink } from '@components'
 
 const Footer = styled.footer`
   text-align: center;

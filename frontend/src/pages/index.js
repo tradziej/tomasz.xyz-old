@@ -1,8 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import Head from '../components/Head'
-import DataList from '../components/DataList'
+import { Head, DataList } from '@components'
 import apiQuery from './../queries/api.graphql'
 
 const api = axios.create({

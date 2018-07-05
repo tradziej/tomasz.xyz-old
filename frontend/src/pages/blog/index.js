@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { rhythm } from '../../utils/typography';
-import StyledLink from '../../components/StyledLink';
-import Time from '../../components/Time';
+import { StyledLink, Time } from '@components';
 
 const PostListTitle = styled.h2`
   font-size: ${rhythm(2 / 3)};

@@ -2,10 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import pluralize from 'pluralize'
 
-import Age from './Age'
-import NavLink from '../components/NavLink'
-import StyledLink from '../components/StyledLink'
-import InstagramPhotos from '../components/InstagramPhotos'
+import {
+  Age,
+  NavLink,
+  StyledLink,
+  InstagramPhotos,
+} from '../../components'
 
 const List = styled.ul`
   list-style-type: none;

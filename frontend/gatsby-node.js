@@ -5,6 +5,7 @@ exports.modifyWebpackConfig = ({ config }) => {
     resolve: {
       root: path.resolve(config._config.context, 'src'),
       alias: {
+        '@components': path.resolve(__dirname, 'src/components/'),
         '@styles': path.resolve(__dirname, 'src/styles/'),
       },
     },

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { rhythm, scale } from '../utils/typography';
-import StyledLink from '../components/StyledLink';
+import { StyledLink } from '@components';
 
 const PostedTime = styled.p`
   ${{ ...scale(-1 / 5) }};
