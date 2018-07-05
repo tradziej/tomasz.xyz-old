@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { Head, DataList } from '@components';
+import { DataList } from '@components';
 import apiQuery from './../queries/api.graphql';
 
 const api = axios.create({
@@ -16,7 +16,6 @@ class IndexPage extends Component {
     super(props);
 
     this.data = props.data;
-    this.location = props.location;
 
     this.state = {
       api: this.data.apiGraphQl,
@@ -61,12 +60,6 @@ class IndexPage extends Component {
   render() {
     return (
       <div>
-        <Head
-          title={this.data.site.siteMetadata.title}
-          description="Full Stack Software Engineer"
-          keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
-          location={this.location}
-        />
         <DataList
           apiGraphQl={this.state.api}
           blogPostsCount={this.data.allMarkdownRemark.totalCount}
