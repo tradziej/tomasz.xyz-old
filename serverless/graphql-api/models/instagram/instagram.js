@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const instagramApi = require('instagram-node').instagram();
 
@@ -8,4 +8,4 @@ instagramApi.use({
   access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
 });
 
-module.exports = instagramApi
+module.exports = instagramApi;

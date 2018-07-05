@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const request = require('request-promise');
 
@@ -13,7 +13,7 @@ module.exports = () => {
     },
     headers: {
       'User-Agent': 'API for tomasz.xyz',
-      'Authorization': `token ${githubPersonalAccessToken}`,
-    }
-  })
-}
+      Authorization: `token ${githubPersonalAccessToken}`,
+    },
+  });
+};

@@ -1,3 +1,3 @@
-'use strict'
+'use strict';
 
-module.exports = require('./spotify')
+module.exports = require('./spotify');
