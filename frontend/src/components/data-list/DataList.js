@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import pluralize from 'pluralize';
 
@@ -165,5 +166,10 @@ const DataList = ({ apiGraphQl, blogPostsCount }) => (
     <Instagram query={apiGraphQl.instagram} />
   </List>
 );
+
+DataList.propTypes = {
+  apiGraphQl: PropTypes.object.isRequired,
+  blogPostsCount: PropTypes.number.isRequired,
+};
 
 export default DataList;

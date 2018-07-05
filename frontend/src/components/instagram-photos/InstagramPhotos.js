@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { media } from '@styles';
 
@@ -37,6 +38,10 @@ const InstagramPhotos = ({ photos }) => {
   ));
 
   return <List>{items}</List>;
+};
+
+InstagramPhotos.propTypes = {
+  photos: PropTypes.array.isRequired,
 };
 
 export default InstagramPhotos;

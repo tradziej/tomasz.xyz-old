@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import { Head, DataList } from '@components';
@@ -11,7 +11,7 @@ const api = axios.create({
   },
 });
 
-class IndexPage extends React.Component {
+class IndexPage extends Component {
   constructor(props) {
     super(props);
 

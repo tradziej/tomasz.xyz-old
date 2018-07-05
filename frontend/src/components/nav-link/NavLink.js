@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
@@ -17,5 +18,10 @@ const StyledLink = styled(OutboundLink)`
 const NavLink = ({ href, children }) => (
   <StyledLink href={href}>{children}</StyledLink>
 );
+
+NavLink.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.node,
+};
 
 export default NavLink;
