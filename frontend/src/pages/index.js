@@ -63,7 +63,7 @@ class IndexPage extends Component {
       <div>
         <Head
           title={this.data.site.siteMetadata.title}
-          description="Tomasz Radziejewski. Full Stack Software Engineer."
+          description="Full Stack Software Engineer"
           keywords="Tomasz Radziejewski, Software Engineer, Remote, Software Developer, Ruby on Rails"
           location={this.location}
         />
