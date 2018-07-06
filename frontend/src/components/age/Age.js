@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { DataListElement } from '@components';
+
 class Age extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +11,7 @@ class Age extends Component {
 
     this.state = {
       age: this.calculateAge(),
+      animate: '',
     };
   }
 
@@ -34,12 +37,14 @@ class Age extends Component {
   }
 
   render() {
+    const { animation, transitionDelay } = this.props;
+
     return (
-      <li>
+      <DataListElement animation={animation} transitionDelay={transitionDelay}>
         <div>
           <strong>Age</strong>: {this.state.age.toFixed(9)}
         </div>
-      </li>
+      </DataListElement>
     );
   }
 }

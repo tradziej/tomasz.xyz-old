@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import pluralize from 'pluralize';
 
-import { Age, NavLink, StyledLink, InstagramPhotos } from '../../components';
+import {
+  Age,
+  NavLink,
+  StyledLink,
+  InstagramPhotos,
+  DataListElement,
+} from '@components';
 
 const List = styled.ul`
   list-style-type: none;
@@ -14,45 +20,45 @@ const Details = styled.div`
   color: ${props => props.theme.colors.martinique};
 `;
 
-const Skills = ({ query }) => (
-  <li>
+const Skills = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Skills</strong>: {query}
     </div>
-  </li>
+  </DataListElement>
 );
 
-const Resume = ({ query }) => (
-  <li>
+const Resume = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Resume</strong>:{' '}
       <NavLink href={query.url}>{query.format}</NavLink>
     </div>
-  </li>
+  </DataListElement>
 );
 
-const Blog = ({ count }) => (
-  <li>
+const Blog = ({ count, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Blog</strong>: <StyledLink to="/blog">here</StyledLink>
     </div>
     <Details>
       {count} {pluralize('post', count)}
     </Details>
-  </li>
+  </DataListElement>
 );
 
-const LinkedIn = ({ query }) => (
-  <li>
+const LinkedIn = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>LinkedIn</strong>:{' '}
       <NavLink href={query.url}>{query.username}</NavLink>
     </div>
     <Details>{query.connections}</Details>
-  </li>
+  </DataListElement>
 );
 
-const Github = ({ query }) => {
+const Github = ({ query, animation, transitionDelay }) => {
   const {
     username,
     url,
@@ -63,7 +69,7 @@ const Github = ({ query }) => {
   } = query;
 
   return (
-    <li>
+    <DataListElement animation={animation} transitionDelay={transitionDelay}>
       <div>
         <strong>Github</strong>: <NavLink href={url}>{username}</NavLink>
       </div>
@@ -76,21 +82,21 @@ const Github = ({ query }) => {
           {source_repositories_count} sources
         </NavLink>)
       </Details>
-    </li>
+    </DataListElement>
   );
 };
 
-const Keybase = ({ query }) => (
-  <li>
+const Keybase = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Keybase</strong>:{' '}
       <NavLink href={query.url}>{query.username}</NavLink>
     </div>
-  </li>
+  </DataListElement>
 );
 
-const Twitter = ({ query }) => (
-  <li>
+const Twitter = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Twitter</strong>:{' '}
       <NavLink href={query.url}>{query.username}</NavLink>
@@ -98,11 +104,11 @@ const Twitter = ({ query }) => (
     <Details>
       {query.statuses_count} {pluralize('tweet', query.statuses_count)}
     </Details>
-  </li>
+  </DataListElement>
 );
 
-const Spotify = ({ query }) => (
-  <li>
+const Spotify = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Spotify</strong>:
     </div>
@@ -121,11 +127,11 @@ const Spotify = ({ query }) => (
           return accu == null ? [el] : [...accu, ', ', el];
         }, null)}
     </Details>
-  </li>
+  </DataListElement>
 );
 
-const Endomondo = ({ query }) => (
-  <li>
+const Endomondo = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Endomondo</strong>:
     </div>
@@ -134,11 +140,11 @@ const Endomondo = ({ query }) => (
         ? `I run ${Number(query.distance_km).toFixed(2)}km this week`
         : "I didn't run this week"}
     </Details>
-  </li>
+  </DataListElement>
 );
 
-const Instagram = ({ query }) => (
-  <li>
+const Instagram = ({ query, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
       <strong>Instagram</strong>:{' '}
       <NavLink href={query.user.url}>{query.user.username}</NavLink>
@@ -148,24 +154,89 @@ const Instagram = ({ query }) => (
       few recent ones:
     </Details>
     <InstagramPhotos photos={query.medias} />
-  </li>
+  </DataListElement>
 );
 
-const DataList = ({ apiGraphQl, blogPostsCount }) => (
-  <List>
-    <Age birthday="1989-11-14T14:00+02:00" />
-    <Skills query={apiGraphQl.skills} />
-    <Resume query={apiGraphQl.resume} />
-    <Blog count={blogPostsCount} />
-    <LinkedIn query={apiGraphQl.linkedin} />
-    <Github query={apiGraphQl.github} />
-    <Keybase query={apiGraphQl.keybase} />
-    <Twitter query={apiGraphQl.twitter} />
-    <Spotify query={apiGraphQl.spotify} />
-    <Endomondo query={apiGraphQl.endomondo} />
-    <Instagram query={apiGraphQl.instagram} />
-  </List>
-);
+class DataList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      animation: '',
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ animation: 'start' });
+    });
+  }
+
+  render() {
+    const { animation } = this.state;
+    const { apiGraphQl, blogPostsCount } = this.props;
+
+    return (
+      <List>
+        <Age
+          birthday="1989-11-14T14:00+02:00"
+          animation={animation}
+          transitionDelay={400}
+        />
+        <Skills
+          query={apiGraphQl.skills}
+          animation={animation}
+          transitionDelay={550}
+        />
+        <Resume
+          query={apiGraphQl.resume}
+          animation={animation}
+          transitionDelay={700}
+        />
+        <Blog
+          count={blogPostsCount}
+          animation={animation}
+          transitionDelay={850}
+        />
+        <LinkedIn
+          query={apiGraphQl.linkedin}
+          animation={animation}
+          transitionDelay={1000}
+        />
+        <Github
+          query={apiGraphQl.github}
+          animation={animation}
+          transitionDelay={1150}
+        />
+        <Keybase
+          query={apiGraphQl.keybase}
+          animation={animation}
+          transitionDelay={1300}
+        />
+        <Twitter
+          query={apiGraphQl.twitter}
+          animation={animation}
+          transitionDelay={1450}
+        />
+        <Spotify
+          query={apiGraphQl.spotify}
+          animation={animation}
+          transitionDelay={1600}
+        />
+        <Endomondo
+          query={apiGraphQl.endomondo}
+          animation={animation}
+          transitionDelay={1750}
+        />
+        <Instagram
+          query={apiGraphQl.instagram}
+          animation={animation}
+          transitionDelay={2000}
+        />
+      </List>
+    );
+  }
+}
 
 DataList.propTypes = {
   apiGraphQl: PropTypes.object.isRequired,
