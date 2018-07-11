@@ -9,6 +9,7 @@ import {
   StyledLink,
   InstagramPhotos,
   DataListElement,
+  Availability,
 } from '@components';
 
 const List = styled.ul`
@@ -188,50 +189,55 @@ class DataList extends Component {
           animation={animation}
           transitionDelay={550}
         />
+        <Availability
+          available={true}
+          animation={animation}
+          transitionDelay={700}
+        />
         <Resume
           query={apiGraphQl.resume}
           animation={animation}
-          transitionDelay={700}
+          transitionDelay={850}
         />
         <Blog
           count={blogPostsCount}
           animation={animation}
-          transitionDelay={850}
+          transitionDelay={1000}
         />
         <LinkedIn
           query={apiGraphQl.linkedin}
           animation={animation}
-          transitionDelay={1000}
+          transitionDelay={1150}
         />
         <Github
           query={apiGraphQl.github}
           animation={animation}
-          transitionDelay={1150}
+          transitionDelay={1300}
         />
         <Keybase
           query={apiGraphQl.keybase}
           animation={animation}
-          transitionDelay={1300}
+          transitionDelay={1450}
         />
         <Twitter
           query={apiGraphQl.twitter}
           animation={animation}
-          transitionDelay={1450}
+          transitionDelay={1600}
         />
         <Spotify
           query={apiGraphQl.spotify}
           animation={animation}
-          transitionDelay={1600}
+          transitionDelay={1750}
         />
         <Endomondo
           query={apiGraphQl.endomondo}
           animation={animation}
-          transitionDelay={1750}
+          transitionDelay={1900}
         />
         <Instagram
           query={apiGraphQl.instagram}
           animation={animation}
-          transitionDelay={2000}
+          transitionDelay={2050}
         />
       </List>
     );

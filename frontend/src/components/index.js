@@ -10,3 +10,4 @@ export { default as InstagramPhotos } from './instagram-photos/InstagramPhotos';
 export { default as NavLink } from './nav-link/NavLink';
 export { default as StyledLink } from './styled-link/StyledLink';
 export { default as Time } from './time/Time';
+export { default as Availability } from './availability/Availability';
