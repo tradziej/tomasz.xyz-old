@@ -33,9 +33,9 @@ const Head = props => {
       <meta name="twitter:title" content={props.title} />
       <meta property="og:title" content={props.title} />
 
-      <link rel="canonical" href={`${domain}${pathname}`} />
-      <meta name="twitter:url" content={`${domain}${pathname}`} />
-      <meta property="og:url" content={`${domain}${pathname}`} />
+      <link rel="canonical" href={`${domain}/${pathname}`} />
+      <meta name="twitter:url" content={`${domain}/${pathname}`} />
+      <meta property="og:url" content={`${domain}/${pathname}`} />
 
       <meta name="twitter:description" content={props.description} />
       <meta property="og:description" content={props.description} />
