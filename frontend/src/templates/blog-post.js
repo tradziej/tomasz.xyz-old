@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { rhythm, scale } from '../utils/typography';
-import { StyledLink } from '@components';
+import { StyledLink, NavLink } from '@components';
 
 const PostedTime = styled.p`
   ${{ ...scale(-1 / 5) }};
@@ -28,13 +28,26 @@ const Back = styled.div`
 
 export default ({ data }) => {
   const post = data.markdownRemark;
+  let title;
+
+  if (post.frontmatter.link) {
+    title = (
+      <Title>
+        <NavLink href={post.frontmatter.link}>
+          {post.frontmatter.title} &#8594;
+        </NavLink>
+      </Title>
+    );
+  } else {
+    title = <Title>{post.frontmatter.title}</Title>;
+  }
 
   return (
     <Content>
       <Back>
         <StyledLink to="/blog">&larr; List</StyledLink>
       </Back>
-      <Title>{post.frontmatter.title}</Title>
+      {title}
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <PostedTime>Posted {post.frontmatter.date}</PostedTime>
     </Content>
@@ -48,6 +61,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        link
       }
     }
   }
