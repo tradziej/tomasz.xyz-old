@@ -167,7 +167,7 @@ const Instagram = ({ query, animation, transitionDelay }) => (
     </div>
     <Details>
       {query.user.media_count} {pluralize('photo', query.user.media_count)}, a
-      few recent ones:
+      few recent:
     </Details>
     <InstagramPhotos photos={query.medias} />
   </DataListElement>
