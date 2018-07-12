@@ -11,3 +11,4 @@ export { default as NavLink } from './nav-link/NavLink';
 export { default as StyledLink } from './styled-link/StyledLink';
 export { default as Time } from './time/Time';
 export { default as Availability } from './availability/Availability';
+export { default as ListWithMore } from './list-with-more/ListWithMore';

@@ -10,6 +10,7 @@ import {
   InstagramPhotos,
   DataListElement,
   Availability,
+  ListWithMore,
 } from '@components';
 
 const List = styled.ul`
@@ -131,6 +132,17 @@ const Spotify = ({ query, animation, transitionDelay }) => (
   </DataListElement>
 );
 
+const Books = ({ books, animation, transitionDelay }) => (
+  <DataListElement animation={animation} transitionDelay={transitionDelay}>
+    <div>
+      <strong>Books</strong>:
+    </div>
+    <Details>
+      <ListWithMore elements={books} />
+    </Details>
+  </DataListElement>
+);
+
 const Endomondo = ({ query, animation, transitionDelay }) => (
   <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
@@ -229,15 +241,58 @@ class DataList extends Component {
           animation={animation}
           transitionDelay={1750}
         />
+        <Books
+          books={[
+            {
+              value: '<cite>The Intelligent Investor</cite> by Benjamin Graham',
+              url:
+                'https://www.goodreads.com/book/show/106835.The_Intelligent_Investor',
+            },
+            {
+              value: '<cite>Steve Jobs</cite> by Walter Isaacson',
+              url: 'https://www.goodreads.com/book/show/11084145-steve-jobs',
+            },
+            {
+              value:
+                '<cite>Serverless Single Page Apps: Fast, Scalable, and Available</cite by Ben Rady',
+              url:
+                'https://www.goodreads.com/book/show/27755165-serverless-single-page-apps',
+            },
+            {
+              value:
+                '<cite>Tools of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class Performers</cite> by Timothy Ferriss',
+              url:
+                'https://www.goodreads.com/book/show/31823677-tools-of-titans',
+              featured: true,
+            },
+            {
+              value: '<cite>The Road to learn React</cite> by Robin Wieruch',
+              url:
+                'https://www.goodreads.com/book/show/37503118-the-road-to-learn-react',
+            },
+            {
+              value:
+                '<cite>JavaScript: The Good Parts</cite> by Douglas Crockford',
+              url: 'https://www.goodreads.com/book/show/2998152-javascript',
+            },
+            {
+              value: '<cite>The Healthy Programmer</cite> by Joe Kutner',
+              url:
+                'https://www.goodreads.com/book/show/17229509-the-healthy-programmer',
+            },
+          ]}
+          animation={animation}
+          transitionDelay={1900}
+        />
         <Endomondo
           query={apiGraphQl.endomondo}
           animation={animation}
-          transitionDelay={1900}
+          transitionDelay={2050}
         />
         <Instagram
           query={apiGraphQl.instagram}
           animation={animation}
-          transitionDelay={2050}
+          transitionDelay={2200}
         />
       </List>
     );

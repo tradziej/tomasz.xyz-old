@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-const StyledLink = styled(OutboundLink)`
+const NavLink = styled(OutboundLink)`
   color: ${props => props.theme.colors.greenPea};
   display: inline-block;
   text-decoration: none;
@@ -14,10 +14,6 @@ const StyledLink = styled(OutboundLink)`
     text-decoration: underline;
   }
 `;
-
-const NavLink = ({ href, children }) => (
-  <StyledLink href={href}>{children}</StyledLink>
-);
 
 NavLink.propTypes = {
   href: PropTypes.string,
