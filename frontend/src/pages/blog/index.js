@@ -48,7 +48,8 @@ class BlogIndex extends Component {
                 <Time>{post.frontmatter.date}</Time>
                 <StyledLink to={post.fields.slug}>
                   <PostListTitle>{post.frontmatter.title}</PostListTitle>
-                </StyledLink>
+                </StyledLink>{' '}
+                <span>({post.frontmatter.category})</span>
               </Container>
             );
           })}
@@ -66,6 +67,7 @@ export const blogQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            category
           }
           fields {
             slug
