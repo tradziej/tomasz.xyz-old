@@ -45,11 +45,9 @@ const Resume = ({ query, animation, transitionDelay }) => (
 const Blog = ({ count, animation, transitionDelay }) => (
   <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
-      <strong>Blog</strong>: <StyledLink to="/blog">here</StyledLink>
+      <strong>Blog</strong>: <StyledLink to="/blog">here</StyledLink> ({count}{' '}
+      {pluralize('post', count)})
     </div>
-    <Details>
-      {count} {pluralize('post', count)}
-    </Details>
   </DataListElement>
 );
 
