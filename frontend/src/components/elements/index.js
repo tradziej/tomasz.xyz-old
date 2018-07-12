@@ -1,0 +1,13 @@
+export { default as Age } from './age/Age';
+export { default as Skills } from './skills/Skills';
+export { default as Availability } from './availability/Availability';
+export { default as Resume } from './resume/Resume';
+export { default as Blog } from './blog/Blog';
+export { default as Linkedin } from './linkedin/Linkedin';
+export { default as Github } from './github/Github';
+export { default as Keybase } from './keybase/Keybase';
+export { default as Twitter } from './twitter/Twitter';
+export { default as Spotify } from './spotify/Spotify';
+export { default as Books } from './books/Books';
+export { default as Endomondo } from './endomondo/Endomondo';
+export { default as Instagram } from './instagram/Instagram';
