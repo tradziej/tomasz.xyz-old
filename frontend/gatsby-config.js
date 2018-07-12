@@ -6,6 +6,50 @@ module.exports = {
   siteMetadata: {
     title: 'Tomasz Radziejewski',
     siteUrl: `${process.env.APP_URL}`,
+    skills: [
+      'Ruby (and Ruby on Rails)',
+      'Node.js (and Express)',
+      'JavaScript (Ember.js and React)',
+      'HTML',
+      'Git',
+    ],
+    books: [
+      {
+        value: '<cite>The Healthy Programmer</cite> by Joe Kutner',
+        url:
+          'https://www.goodreads.com/book/show/17229509-the-healthy-programmer',
+      },
+      {
+        value: '<cite>JavaScript: The Good Parts</cite> by Douglas Crockford',
+        url: 'https://www.goodreads.com/book/show/2998152-javascript',
+      },
+      {
+        value: '<cite>The Road to learn React</cite> by Robin Wieruch',
+        url:
+          'https://www.goodreads.com/book/show/37503118-the-road-to-learn-react',
+      },
+      {
+        value:
+          '<cite>Tools of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class Performers</cite> by Timothy Ferriss',
+        url: 'https://www.goodreads.com/book/show/31823677-tools-of-titans',
+        featured: true,
+      },
+      {
+        value:
+          '<cite>Serverless Single Page Apps: Fast, Scalable, and Available</cite by Ben Rady',
+        url:
+          'https://www.goodreads.com/book/show/27755165-serverless-single-page-apps',
+      },
+      {
+        value: '<cite>Steve Jobs</cite> by Walter Isaacson',
+        url: 'https://www.goodreads.com/book/show/11084145-steve-jobs',
+      },
+      {
+        value: '<cite>The Intelligent Investor</cite> by Benjamin Graham',
+        url:
+          'https://www.goodreads.com/book/show/106835.The_Intelligent_Investor',
+      },
+    ],
   },
   plugins: [
     'gatsby-plugin-react-helmet',

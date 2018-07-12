@@ -60,10 +60,7 @@ class IndexPage extends Component {
   render() {
     return (
       <div>
-        <DataList
-          apiGraphQl={this.state.api}
-          blogPostsCount={this.data.allMarkdownRemark.totalCount}
-        />
+        <DataList apiGraphQl={this.state.api} data={this.data} />
       </div>
     );
   }
@@ -76,6 +73,12 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        skills
+        books {
+          value
+          url
+          featured
+        }
       }
     }
     allMarkdownRemark {

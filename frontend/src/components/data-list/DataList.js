@@ -10,28 +10,15 @@ import {
   InstagramPhotos,
   DataListElement,
   Availability,
-  ListWithMore,
+  Skills,
+  Details,
+  Books,
 } from '@components';
 
 const List = styled.ul`
   list-style-type: none;
   margin: 0;
 `;
-
-const Details = styled.div`
-  color: ${props => props.theme.colors.martinique};
-`;
-
-const Skills = ({ skills, animation, transitionDelay }) => (
-  <DataListElement animation={animation} transitionDelay={transitionDelay}>
-    <div>
-      <strong>Skills</strong>:
-    </div>
-    <Details>
-      <ListWithMore elements={skills} max={5} />
-    </Details>
-  </DataListElement>
-);
 
 const Resume = ({ query, animation, transitionDelay }) => (
   <DataListElement animation={animation} transitionDelay={transitionDelay}>
@@ -133,17 +120,6 @@ const Spotify = ({ query, animation, transitionDelay }) => (
   </DataListElement>
 );
 
-const Books = ({ books, animation, transitionDelay }) => (
-  <DataListElement animation={animation} transitionDelay={transitionDelay}>
-    <div>
-      <strong>Books</strong>:
-    </div>
-    <Details>
-      <ListWithMore elements={books} />
-    </Details>
-  </DataListElement>
-);
-
 const Endomondo = ({ query, animation, transitionDelay }) => (
   <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
@@ -188,7 +164,9 @@ class DataList extends Component {
 
   render() {
     const { animation } = this.state;
-    const { apiGraphQl, blogPostsCount } = this.props;
+    const { apiGraphQl } = this.props;
+    const blogPostsCount = this.props.data.allMarkdownRemark.totalCount;
+    const { skills, books } = this.props.data.site.siteMetadata;
 
     return (
       <List>
@@ -197,17 +175,7 @@ class DataList extends Component {
           animation={animation}
           transitionDelay={400}
         />
-        <Skills
-          skills={[
-            { value: 'Ruby (and Rails)' },
-            { value: 'Node.js (and Express)' },
-            { value: 'JavaScript (Ember.js and React)' },
-            { value: 'HTML' },
-            { value: 'Git' },
-          ]}
-          animation={animation}
-          transitionDelay={550}
-        />
+        <Skills skills={skills} animation={animation} transitionDelay={550} />
         <Availability
           available={true}
           animation={animation}
@@ -248,49 +216,7 @@ class DataList extends Component {
           animation={animation}
           transitionDelay={1750}
         />
-        <Books
-          books={[
-            {
-              value: '<cite>The Healthy Programmer</cite> by Joe Kutner',
-              url:
-                'https://www.goodreads.com/book/show/17229509-the-healthy-programmer',
-            },
-            {
-              value:
-                '<cite>JavaScript: The Good Parts</cite> by Douglas Crockford',
-              url: 'https://www.goodreads.com/book/show/2998152-javascript',
-            },
-            {
-              value: '<cite>The Road to learn React</cite> by Robin Wieruch',
-              url:
-                'https://www.goodreads.com/book/show/37503118-the-road-to-learn-react',
-            },
-            {
-              value:
-                '<cite>Tools of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class Performers</cite> by Timothy Ferriss',
-              url:
-                'https://www.goodreads.com/book/show/31823677-tools-of-titans',
-              featured: true,
-            },
-            {
-              value:
-                '<cite>Serverless Single Page Apps: Fast, Scalable, and Available</cite by Ben Rady',
-              url:
-                'https://www.goodreads.com/book/show/27755165-serverless-single-page-apps',
-            },
-            {
-              value: '<cite>Steve Jobs</cite> by Walter Isaacson',
-              url: 'https://www.goodreads.com/book/show/11084145-steve-jobs',
-            },
-            {
-              value: '<cite>The Intelligent Investor</cite> by Benjamin Graham',
-              url:
-                'https://www.goodreads.com/book/show/106835.The_Intelligent_Investor',
-            },
-          ]}
-          animation={animation}
-          transitionDelay={1900}
-        />
+        <Books books={books} animation={animation} transitionDelay={1900} />
         <Endomondo
           query={apiGraphQl.endomondo}
           animation={animation}
@@ -308,7 +234,7 @@ class DataList extends Component {
 
 DataList.propTypes = {
   apiGraphQl: PropTypes.object.isRequired,
-  blogPostsCount: PropTypes.number.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default DataList;

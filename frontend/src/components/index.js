@@ -12,3 +12,6 @@ export { default as StyledLink } from './styled-link/StyledLink';
 export { default as Time } from './time/Time';
 export { default as Availability } from './availability/Availability';
 export { default as ListWithMore } from './list-with-more/ListWithMore';
+export { default as Details } from './details/Details';
+export { default as Skills } from './skills/Skills';
+export { default as Books } from './books/Books';
