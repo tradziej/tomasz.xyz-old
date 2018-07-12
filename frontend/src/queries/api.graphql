@@ -1,7 +1,6 @@
 query (
   $twitter_screen_name: String!,
 ) {
-  skills
   description
   email
   resume {

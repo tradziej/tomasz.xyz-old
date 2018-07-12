@@ -22,11 +22,14 @@ const Details = styled.div`
   color: ${props => props.theme.colors.martinique};
 `;
 
-const Skills = ({ query, animation, transitionDelay }) => (
+const Skills = ({ skills, animation, transitionDelay }) => (
   <DataListElement animation={animation} transitionDelay={transitionDelay}>
     <div>
-      <strong>Skills</strong>: {query}
+      <strong>Skills</strong>:
     </div>
+    <Details>
+      <ListWithMore elements={skills} max={5} />
+    </Details>
   </DataListElement>
 );
 
@@ -197,7 +200,13 @@ class DataList extends Component {
           transitionDelay={400}
         />
         <Skills
-          query={apiGraphQl.skills}
+          skills={[
+            { value: 'Ruby (and Rails)' },
+            { value: 'Node.js (and Express)' },
+            { value: 'JavaScript (Ember.js and React)' },
+            { value: 'HTML' },
+            { value: 'Git' },
+          ]}
           animation={animation}
           transitionDelay={550}
         />
@@ -244,19 +253,19 @@ class DataList extends Component {
         <Books
           books={[
             {
-              value: '<cite>The Intelligent Investor</cite> by Benjamin Graham',
+              value: '<cite>The Healthy Programmer</cite> by Joe Kutner',
               url:
-                'https://www.goodreads.com/book/show/106835.The_Intelligent_Investor',
-            },
-            {
-              value: '<cite>Steve Jobs</cite> by Walter Isaacson',
-              url: 'https://www.goodreads.com/book/show/11084145-steve-jobs',
+                'https://www.goodreads.com/book/show/17229509-the-healthy-programmer',
             },
             {
               value:
-                '<cite>Serverless Single Page Apps: Fast, Scalable, and Available</cite by Ben Rady',
+                '<cite>JavaScript: The Good Parts</cite> by Douglas Crockford',
+              url: 'https://www.goodreads.com/book/show/2998152-javascript',
+            },
+            {
+              value: '<cite>The Road to learn React</cite> by Robin Wieruch',
               url:
-                'https://www.goodreads.com/book/show/27755165-serverless-single-page-apps',
+                'https://www.goodreads.com/book/show/37503118-the-road-to-learn-react',
             },
             {
               value:
@@ -266,19 +275,19 @@ class DataList extends Component {
               featured: true,
             },
             {
-              value: '<cite>The Road to learn React</cite> by Robin Wieruch',
-              url:
-                'https://www.goodreads.com/book/show/37503118-the-road-to-learn-react',
-            },
-            {
               value:
-                '<cite>JavaScript: The Good Parts</cite> by Douglas Crockford',
-              url: 'https://www.goodreads.com/book/show/2998152-javascript',
+                '<cite>Serverless Single Page Apps: Fast, Scalable, and Available</cite by Ben Rady',
+              url:
+                'https://www.goodreads.com/book/show/27755165-serverless-single-page-apps',
             },
             {
-              value: '<cite>The Healthy Programmer</cite> by Joe Kutner',
+              value: '<cite>Steve Jobs</cite> by Walter Isaacson',
+              url: 'https://www.goodreads.com/book/show/11084145-steve-jobs',
+            },
+            {
+              value: '<cite>The Intelligent Investor</cite> by Benjamin Graham',
               url:
-                'https://www.goodreads.com/book/show/17229509-the-healthy-programmer',
+                'https://www.goodreads.com/book/show/106835.The_Intelligent_Investor',
             },
           ]}
           animation={animation}

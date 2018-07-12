@@ -10,7 +10,7 @@ const StyledUl = styled.ul`
   margin-bottom: 0px;
 `;
 
-const List = ({ children }) => <StyledUl>{children.reverse()}</StyledUl>;
+const List = ({ children }) => <StyledUl>{children}</StyledUl>;
 
 const Item = styled.li`
   margin-bottom: 0px;
@@ -42,7 +42,7 @@ class ListWithMore extends Component {
     let items = elements;
 
     if (!more) {
-      items = items.slice(-max);
+      items = items.slice(0, max);
     }
 
     const itemArray = items.map((el, index) => {
@@ -72,7 +72,10 @@ class ListWithMore extends Component {
     return (
       <Wrapper>
         <List>{itemArray}</List>
-        {!more && <StyledButton onClick={this.handleMore}>more</StyledButton>}
+        {!more &&
+          elements.length > max && (
+            <StyledButton onClick={this.handleMore}>more</StyledButton>
+          )}
       </Wrapper>
     );
   }

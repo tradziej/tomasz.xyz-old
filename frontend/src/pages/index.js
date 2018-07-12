@@ -82,7 +82,6 @@ export const query = graphql`
       totalCount
     }
     apiGraphQl {
-      skills
       description
       resume {
         format
