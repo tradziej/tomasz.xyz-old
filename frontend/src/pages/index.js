@@ -73,6 +73,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        birthday
         skills
         books {
           value

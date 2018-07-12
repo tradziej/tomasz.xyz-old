@@ -47,10 +47,10 @@ class DataList extends Component {
     const { animation } = this.state;
     const { apiGraphQl } = this.props;
     const blogPostsCount = this.props.data.allMarkdownRemark.totalCount;
-    const { skills, books } = this.props.data.site.siteMetadata;
+    const { birthday, skills, books } = this.props.data.site.siteMetadata;
 
     const elements = [
-      <Age birthday="1989-11-14T14:00+02:00" />,
+      <Age birthday={birthday} />,
       <Skills skills={skills} />,
       <Availability available={true} />,
       <Resume query={apiGraphQl.resume} />,

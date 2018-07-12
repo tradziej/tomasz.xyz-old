@@ -6,6 +6,7 @@ module.exports = {
   siteMetadata: {
     title: 'Tomasz Radziejewski',
     siteUrl: `${process.env.APP_URL}`,
+    birthday: '1989-11-14T14:00+02:00',
     skills: [
       'Ruby (and Ruby on Rails)',
       'Node.js (and Express)',
