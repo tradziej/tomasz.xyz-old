@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import { DataListElement, Details, NavLink } from '@components';
+import { Details, NavLink } from '@components';
 
 class Resume extends Component {
   render() {
-    const { query, animation, transitionDelay } = this.props;
+    const { query } = this.props;
 
     return (
-      <DataListElement animation={animation} transitionDelay={transitionDelay}>
+      <div>
         <div>
           <strong>Spotify</strong>:
         </div>
@@ -26,7 +26,7 @@ class Resume extends Component {
               return accu == null ? [el] : [...accu, ', ', el];
             }, null)}
         </Details>
-      </DataListElement>
+      </div>
     );
   }
 }

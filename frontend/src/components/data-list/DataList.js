@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { transitions } from '@styles';
 import {
   Age,
   Skills,
@@ -21,6 +22,10 @@ import {
 const List = styled.ul`
   list-style-type: none;
   margin: 0;
+`;
+
+const Element = styled.li`
+  ${transitions.fadeUp};
 `;
 
 class DataList extends Component {
@@ -44,65 +49,35 @@ class DataList extends Component {
     const blogPostsCount = this.props.data.allMarkdownRemark.totalCount;
     const { skills, books } = this.props.data.site.siteMetadata;
 
+    const elements = [
+      <Age birthday="1989-11-14T14:00+02:00" />,
+      <Skills skills={skills} />,
+      <Availability available={true} />,
+      <Resume query={apiGraphQl.resume} />,
+      <Blog count={blogPostsCount} />,
+      <Linkedin query={apiGraphQl.linkedin} />,
+      <Github query={apiGraphQl.github} />,
+      <Keybase query={apiGraphQl.keybase} />,
+      <Twitter query={apiGraphQl.twitter} />,
+      <Spotify query={apiGraphQl.spotify} />,
+      <Books books={books} />,
+      <Endomondo query={apiGraphQl.endomondo} />,
+      <Instagram query={apiGraphQl.instagram} />,
+    ];
+
     return (
       <List>
-        <Age
-          birthday="1989-11-14T14:00+02:00"
-          animation={animation}
-          transitionDelay={400}
-        />
-        <Skills skills={skills} animation={animation} transitionDelay={550} />
-        <Availability
-          available={true}
-          animation={animation}
-          transitionDelay={700}
-        />
-        <Resume
-          query={apiGraphQl.resume}
-          animation={animation}
-          transitionDelay={850}
-        />
-        <Blog
-          count={blogPostsCount}
-          animation={animation}
-          transitionDelay={1000}
-        />
-        <Linkedin
-          query={apiGraphQl.linkedin}
-          animation={animation}
-          transitionDelay={1150}
-        />
-        <Github
-          query={apiGraphQl.github}
-          animation={animation}
-          transitionDelay={1300}
-        />
-        <Keybase
-          query={apiGraphQl.keybase}
-          animation={animation}
-          transitionDelay={1450}
-        />
-        <Twitter
-          query={apiGraphQl.twitter}
-          animation={animation}
-          transitionDelay={1600}
-        />
-        <Spotify
-          query={apiGraphQl.spotify}
-          animation={animation}
-          transitionDelay={1750}
-        />
-        <Books books={books} animation={animation} transitionDelay={1900} />
-        <Endomondo
-          query={apiGraphQl.endomondo}
-          animation={animation}
-          transitionDelay={2050}
-        />
-        <Instagram
-          query={apiGraphQl.instagram}
-          animation={animation}
-          transitionDelay={2200}
-        />
+        {elements.map((element, index) => {
+          return (
+            <Element
+              animation={animation}
+              key={index}
+              transitionDelay={400 + 150 * index}
+            >
+              {element}
+            </Element>
+          );
+        })}
       </List>
     );
   }

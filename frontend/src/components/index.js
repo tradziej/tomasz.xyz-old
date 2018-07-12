@@ -1,7 +1,4 @@
 export { default as DataList } from './data-list/DataList';
-export {
-  default as DataListElement,
-} from './data-list-element/DataListElement';
 export { default as Footer } from './footer/Footer';
 export { default as Head } from './head/Head';
 export { default as Header } from './header/Header';

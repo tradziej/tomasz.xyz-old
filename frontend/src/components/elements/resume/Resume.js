@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 
-import { DataListElement, NavLink } from '@components';
+import { NavLink } from '@components';
 
 class Resume extends Component {
   render() {
-    const { query, animation, transitionDelay } = this.props;
+    const { query } = this.props;
     return (
-      <DataListElement animation={animation} transitionDelay={transitionDelay}>
-        <div>
-          <strong>Resume</strong>:{' '}
-          <NavLink href={query.url}>{query.format}</NavLink>
-        </div>
-      </DataListElement>
+      <div>
+        <strong>Resume</strong>:{' '}
+        <NavLink href={query.url}>{query.format}</NavLink>
+      </div>
     );
   }
 }

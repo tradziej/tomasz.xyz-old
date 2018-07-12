@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import { DataListElement, Details } from '@components';
+import { Details } from '@components';
 
 class Resume extends Component {
   render() {
-    const { query, animation, transitionDelay } = this.props;
+    const { query } = this.props;
 
     return (
-      <DataListElement animation={animation} transitionDelay={transitionDelay}>
+      <div>
         <div>
           <strong>Endomondo</strong>:
         </div>
@@ -16,7 +16,7 @@ class Resume extends Component {
             ? `I run ${Number(query.distance_km).toFixed(2)}km this week`
             : "I didn't run this week"}
         </Details>
-      </DataListElement>
+      </div>
     );
   }
 }

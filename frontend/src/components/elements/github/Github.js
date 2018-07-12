@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import pluralize from 'pluralize';
 
-import { DataListElement, Details, NavLink } from '@components';
+import { Details, NavLink } from '@components';
 
 class Resume extends Component {
   render() {
-    const { query, animation, transitionDelay } = this.props;
+    const { query } = this.props;
     const {
       username,
       url,
@@ -16,7 +16,7 @@ class Resume extends Component {
     } = query;
 
     return (
-      <DataListElement animation={animation} transitionDelay={transitionDelay}>
+      <div>
         <div>
           <strong>Github</strong>: <NavLink href={url}>{username}</NavLink>
         </div>
@@ -29,7 +29,7 @@ class Resume extends Component {
             {source_repositories_count} sources
           </NavLink>)
         </Details>
-      </DataListElement>
+      </div>
     );
   }
 }

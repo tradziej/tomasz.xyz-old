@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { DataListElement, Details, ListWithMore } from '@components';
+import { Details, ListWithMore } from '@components';
 
 class Skills extends Component {
   render() {
-    const { skills, animation, transitionDelay } = this.props;
+    const { skills } = this.props;
     const normalizedSkills = skills.map(skill => {
       return {
         value: skill,
@@ -11,14 +11,14 @@ class Skills extends Component {
     });
 
     return (
-      <DataListElement animation={animation} transitionDelay={transitionDelay}>
+      <div>
         <div>
           <strong>Skills</strong>:
         </div>
         <Details>
           <ListWithMore elements={normalizedSkills} max={5} />
         </Details>
-      </DataListElement>
+      </div>
     );
   }
 }
