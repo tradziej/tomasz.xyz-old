@@ -72,7 +72,7 @@ class DataList extends Component {
             <Element
               animation={animation}
               key={index}
-              transitionDelay={400 + 150 * index}
+              transitionDelay={150 + 150 * index}
             >
               {element}
             </Element>

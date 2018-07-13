@@ -43,7 +43,7 @@ class BlogIndex extends Component {
               <Container
                 key={post.id}
                 animation={animation}
-                transitionDelay={200 + index * 150}
+                transitionDelay={150 + index * 150}
               >
                 <Time>{post.frontmatter.date}</Time>
                 <StyledLink to={post.fields.slug}>
