@@ -2,7 +2,7 @@ import Typography from 'typography';
 import { theme } from '@styles';
 
 const {
-  colors: { midnight },
+  colors: { midnight, greenPea },
 } = theme;
 
 export default new Typography({
@@ -30,6 +30,13 @@ export default new Typography({
   overrideThemeStyles: ({ rhythm }, options, styles) => ({
     h1: {
       marginBottom: rhythm(1 / 2),
+    },
+    a: {
+      color: greenPea,
+      textDecoration: 'none',
+    },
+    'a:hover': {
+      textDecoration: 'underline',
     },
   }),
 });

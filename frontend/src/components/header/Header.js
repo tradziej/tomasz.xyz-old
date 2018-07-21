@@ -9,6 +9,9 @@ const HeaderLink = styled(Link)`
   &.is-active {
     text-decoration: underline;
   }
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 const Description = styled.section`
