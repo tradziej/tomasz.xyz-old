@@ -54,13 +54,14 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography.js',
       },
     },
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -93,31 +94,6 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
-    'gatsby-transformer-remark',
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: 'Tomasz Radziejewski',
-        short_name: 'T.R.',
-        start_url: '/',
-        background_color: '#fbfef9',
-        theme_color: '#fbfef9',
-        display: 'standalone',
-        icons: [
-          {
-            src: `/public/favicon/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `/public/favicon/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
-        ],
-      },
-    },
-    'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -166,6 +142,29 @@ module.exports = {
             }
           `,
             output: '/rss.xml',
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Tomasz Radziejewski',
+        short_name: 'T.R.',
+        start_url: '/',
+        background_color: '#fbfef9',
+        theme_color: '#fbfef9',
+        display: 'standalone',
+        icons: [
+          {
+            src: `/public/favicon/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/public/favicon/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
           },
         ],
       },
