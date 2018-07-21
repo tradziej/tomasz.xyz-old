@@ -10,7 +10,7 @@ const NavLink = styled(OutboundLink)`
   position: relative;
   cursor: pointer;
 
-  &: hover {
+  &:hover {
     text-decoration: underline;
   }
 `;

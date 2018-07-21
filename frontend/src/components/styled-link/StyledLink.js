@@ -8,7 +8,7 @@ const StyledLink = styled(Link)`
   position: relative;
   cursor: pointer;
 
-  &: hover {
+  &:hover {
     text-decoration: underline;
   }
 `;
