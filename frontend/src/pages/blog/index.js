@@ -13,6 +13,19 @@ const Container = styled.div`
   ${transitions.fadeUp};
 `;
 
+const PostHeader = styled.div`
+  display: inline-flex;
+  color: ${props => props.theme.colors.boulder};
+  font-size: ${rhythm(4 / 7)};
+  line-height: ${rhythm(3 / 5)};
+`;
+
+const PostCategory = styled.span`
+  ::before {
+    content: '; ';
+  }
+`;
+
 class BlogIndex extends Component {
   constructor(props) {
     super(props);
@@ -45,11 +58,15 @@ class BlogIndex extends Component {
                 animation={animation}
                 transitionDelay={150 + index * 150}
               >
-                <Time>{post.frontmatter.date}</Time>
-                <StyledLink to={post.fields.slug}>
-                  <PostListTitle>{post.frontmatter.title}</PostListTitle>
-                </StyledLink>{' '}
-                <span>({post.frontmatter.category})</span>
+                <PostHeader>
+                  <Time>{post.frontmatter.date}</Time>
+                  <PostCategory>{post.frontmatter.category}</PostCategory>
+                </PostHeader>
+                <PostListTitle>
+                  <StyledLink to={post.fields.slug}>
+                    {post.frontmatter.title}
+                  </StyledLink>
+                </PostListTitle>
               </Container>
             );
           })}
