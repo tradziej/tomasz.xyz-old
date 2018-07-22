@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import renderHTML from 'react-render-html';
 
 import { NavLink } from '@components';
 
@@ -13,7 +14,12 @@ const StyledUl = styled.ul`
 const List = ({ children }) => <StyledUl>{children}</StyledUl>;
 
 const Item = styled.li`
+  list-style-position: inside;
+  padding-right: 30px;
   margin-bottom: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   ${({ featured }) =>
     featured &&
     `
@@ -51,10 +57,7 @@ class ListWithMore extends Component {
       if (el.url) {
         item = (
           <Item featured={el.featured} key={index}>
-            <NavLink
-              href={el.url}
-              dangerouslySetInnerHTML={{ __html: el.value }}
-            />
+            <NavLink href={el.url}>{renderHTML(el.value)}</NavLink>
           </Item>
         );
       } else {

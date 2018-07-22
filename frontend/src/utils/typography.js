@@ -32,7 +32,7 @@ export default new Typography({
       marginBottom: rhythm(1 / 2),
     },
     a: {
-      color: greenPea,
+      color: midnight,
       textDecoration: 'none',
     },
     'a:hover': {

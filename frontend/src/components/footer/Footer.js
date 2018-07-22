@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { NavLink } from '@components';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 const Footer = styled.footer`
   text-align: center;
@@ -11,9 +10,9 @@ const Footer = styled.footer`
 export default () => (
   <Footer>
     <div>
-      <NavLink href="mailto:tomasz@radziejewski.pl">
+      <OutboundLink href="mailto:tomasz@radziejewski.pl">
         tomasz@radziejewski.pl
-      </NavLink>
+      </OutboundLink>
     </div>
     <div>the best way to contact me</div>
   </Footer>
